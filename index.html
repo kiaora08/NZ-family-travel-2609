@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>우리 가족 뉴질랜드 여행 가이드</title>
+    <title>3대가 함께하는 뉴질랜드 여행 가이드</title>
     <style>
         html { scroll-behavior: smooth; }
         body {
@@ -60,33 +60,46 @@
             background: linear-gradient(135deg, #6b8e23, #556b2f); color: white; border-radius: 15px; margin-bottom: 20px;
         }
         header h1 { font-size: 24px; margin: 0 0 10px 0; word-break: keep-all; }
-        .dday-banner { background-color: rgba(255, 255, 255, 0.15); padding: 8px 15px; border-radius: 30px; font-size: 14px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        header p { margin: 0; font-size: 15px; opacity: 0.9; }
+        .dday-banner { background-color: rgba(255, 255, 255, 0.15); padding: 8px 15px; border-radius: 30px; font-size: 13px; font-weight: bold; display: inline-block; margin-top: 12px; }
 
         .section-card {
             background: white; padding: 20px; border-radius: 15px; margin-bottom: 25px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.03); scroll-margin-top: 85px;
         }
         h2 { color: #556b2f; border-bottom: 2px solid #eff2f0; padding-bottom: 10px; margin-top: 0; font-size: 20px; }
-        h3 { font-size: 17px; color: #444; margin-top: 20px; margin-bottom: 10px; }
+        h3 { font-size: 16px; color: #333; margin-top: 20px; margin-bottom: 10px; padding-left: 5px; border-left: 3px solid #556b2f; }
+        ul { padding-left: 20px; margin: 10px 0; }
+        li { margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
+
+        /* 💱 최상단 환율 및 날짜별 날씨 통합 대시보드 */
+        .dashboard-widget { background-color: #ffffff; padding: 18px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #eef2ef; }
+        .widget-title { font-size: 14px; font-weight: bold; color: #556b2f; margin-bottom: 12px; display: flex; align-items: center; gap: 5px; }
+        .exchange-box { background-color: #f8faf9; padding: 12px; border-radius: 10px; margin-bottom: 15px; }
+        .exchange-rate-info { font-size: 14px; color: #333; margin-bottom: 8px; font-weight: bold; }
+        .input-group { position: relative; display: flex; align-items: center; }
+        .input-group input { width: 100%; padding: 10px 40px 10px 10px; font-size: 15px; border: 1px solid #dde3de; border-radius: 6px; box-sizing: border-box; }
+        .clear-btn { position: absolute; right: 10px; background: #bbb; color: white; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .result-box { font-size: 15px; font-weight: bold; color: #d2691e; margin-top: 8px; padding-left: 2px; }
         
+        /* 🌤️ 스마트 날씨 스타일 */
+        .weather-box { background-color: #f1f7f3; padding: 12px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .weather-info { font-size: 14px; line-height: 1.5; color: #333; }
+        .weather-icon { font-size: 28px; padding-right: 5px; }
+
         /* 남섬/북섬 대구분 서브 타이틀 */
         .island-title {
             font-size: 16px; font-weight: bold; color: #ffffff; 
             background-color: #556b2f; padding: 8px 12px; border-radius: 6px;
             margin-top: 25px; margin-bottom: 15px; scroll-margin-top: 85px;
         }
-        
-        ul { padding-left: 20px; margin: 10px 0; }
-        li { margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
 
-        /* 💱 환율 계산기 위젯 스타일 */
-        .exchange-widget { background-color: #f1f5f2; padding: 15px; border-radius: 10px; margin-top: 15px; }
-        .exchange-rate-info { font-size: 14px; color: #333; margin-bottom: 5px; font-weight: bold; }
-        .exchange-rate-note { font-size: 12px; color: #666; margin-bottom: 12px; }
-        .input-group { position: relative; display: flex; align-items: center; margin-bottom: 10px; }
-        .input-group input { width: 100%; padding: 12px 40px 12px 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .clear-btn { position: absolute; right: 12px; background: #bbb; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; padding: 0; }
-        .result-box { font-size: 16px; font-weight: bold; color: #d2691e; padding-left: 5px; margin-top: 5px; }
+        /* 📞 긴급 연락처 버튼 스타일 */
+        .call-btn-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+        .call-btn { display: flex; align-items: center; justify-content: center; gap: 5px; background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 8px; text-decoration: none; color: #334155; font-size: 14px; font-weight: bold; transition: background 0.2s; }
+        .call-btn:active { background-color: #f1f5f9; }
+        .call-btn.sos { background-color: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+        .call-btn.sos:active { background-color: #fee2e2; }
 
         /* 📅 접이식 아코디언 일정 스타일 */
         .accordion-item { border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; scroll-margin-top: 90px;}
@@ -96,19 +109,21 @@
             color: #475569; -webkit-tap-highlight-color: transparent;
         }
         .accordion-header.active { background-color: #f0f5f1; color: #556b2f; }
-        
-        /* ✨ 오늘 날짜 일차 하이라이트 효과 */
         .accordion-item.today-highlight { border: 2px solid #6b8e23; box-shadow: 0 0 10px rgba(107, 142, 35, 0.3); }
         .accordion-item.today-highlight .accordion-header { background-color: #e2ede4; color: #2e4a00; }
 
         .accordion-content { display: none; padding: 15px; background-color: white; border-top: 1px solid #e2e8f0; }
         .timeline { margin-top: 5px; }
-        .time-block { display: flex; margin-bottom: 15px; border-left: 3px solid #6b8e23; padding-left: 12px; }
+        .time-block { display: flex; margin-bottom: 15px; border-left: 3px solid #6b8e23; padding-left: 12px; position: relative; }
         .time-block:last-child { margin-bottom: 0; }
-        .time-text { font-weight: bold; color: #6b8e23; min-width: 60px; font-size: 14px; }
-        .time-desc { font-size: 14px; line-height: 1.5; word-break: keep-all; }
+        .time-text { font-weight: bold; color: #6b8e23; min-width: 55px; font-size: 14px; }
+        .time-desc { font-size: 14px; line-height: 1.5; word-break: keep-all; padding-right: 65px; flex: 1; }
+        
+        /* 📍 지도보기 버튼 */
+        .map-btn { position: absolute; right: 0; top: 0; background-color: #ffffff; border: 1px solid #6b8e23; color: #6b8e23; padding: 4px 8px; font-size: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+        .map-btn:active { background-color: #f0f5f1; }
 
-        /* 📸 사진첩 탭 내부 세부 타이틀 */
+        /* 📸 사진첩 스타일 */
         .gallery-sub-title { font-size: 15px; font-weight: bold; color: #556b2f; margin-top: 20px; margin-bottom: 8px; padding-left: 5px; border-left: 3px solid #6b8e23;}
         .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px; }
         .photo-box { background-color: #eaeaea; height: 110px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 13px; font-style: italic; text-align: center; padding: 5px; box-sizing: border-box; }
@@ -116,7 +131,6 @@
 </head>
 <body>
 
-    <!-- 🔒 암호 입력 및 초기화 스크립트 -->
     <script>
         var password = prompt("가족 전용 페이지입니다. 비밀번호를 입력해주세요:");
         if (password === "1234") {
@@ -127,14 +141,14 @@
                 fetchExchangeRate(); 
                 initAccordion();     
                 initScrollSpy();     
-                checkTodaySchedule(); // 🚀 오늘 날짜 자동 포커싱 시스템 실행
+                checkTodaySchedule(); // 🚀 오늘 일정 자동 이동 및 날짜별 맞춤 날씨 API 작동
             }
         } else {
             alert("암호가 틀렸습니다. 새로고침을 눌러 다시 시도해주세요.");
             window.stop();
         }
 
-        // ⏱️ D-Day 카운트다운 (9월 27일 기준)
+        // ⏱️ 출국 카운트다운 (문구 수정 반영)
         function startDdayCounter() {
             var targetDate = new Date("September 27, 2026 00:00:00").getTime();
             setInterval(function() {
@@ -146,12 +160,12 @@
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 var display = document.getElementById("dday-display");
-                if (distance < 0) { display.innerHTML = "🎉 즐거운 뉴질랜드 여행 중입니다! 🎉"; }
-                else { display.innerHTML = "✈️ 부모님 출국까지 " + days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초 남음"; }
+                if (distance < 0) { display.innerHTML = "🎉 우리 가족 즐거운 뉴질랜드 여행 중! 🎉"; }
+                else { display.innerHTML = "✈️ 출국까지 " + days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초 남음"; }
             }, 1000);
         }
 
-        // 💱 환율 API 및 계산
+        // 💱 실시간 환율 API
         var currentRate = 884; 
         function fetchExchangeRate() {
             fetch("https://open.er-api.com/v6/latest/NZD")
@@ -159,11 +173,11 @@
                 .then(data => {
                     if(data && data.rates && data.rates.KRW) {
                         currentRate = data.rates.KRW;
-                        document.getElementById("rate-text").innerText = "💡 실시간 환율: 1 NZD = " + Math.round(currentRate) + " 원 (유럽 기준)";
+                        document.getElementById("rate-text").innerText = "💰 1 NZD = " + Math.round(currentRate) + " 원";
                     }
                 })
                 .catch(error => {
-                    document.getElementById("rate-text").innerText = "💡 실시간 환율: 1 NZD = 884 원 (유럽 기준)";
+                    document.getElementById("rate-text").innerText = "💰 1 NZD = 884 원 (기본가)";
                 });
         }
         function calculateCurrency() {
@@ -174,16 +188,49 @@
         }
         function clearInput() { document.getElementById("nzd-input").value = ""; document.getElementById("krw-result").innerText = "= 0 원"; }
 
-        // 📅 접이식 아코디언 작동 함수
-        function initAccordion() {
-            var headers = document.querySelectorAll('.accordion-header');
-            headers.forEach(function(header) {
-                header.addEventListener('click', function() {
-                    toggleAccordion(this);
+        // 🌤️ 스마트 위치 기반 실시간 날씨 API 연동 시스템 (Open-Meteo 무료 서버 활용)
+        function fetchSmartWeather(cityName, lat, lon) {
+            var url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current_weather=true";
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.current_weather) {
+                        var temp = Math.round(data.current_weather.temperature);
+                        var code = data.current_weather.weathercode;
+                        
+                        // 기상 코드를 직관적인 아이콘으로 번역
+                        var icon = "☀️";
+                        if (code >= 1 && code <= 3) icon = "☁️";
+                        else if (code >= 45 && code <= 48) icon = "🌫️";
+                        else if (code >= 51 && code <= 67) icon = "🌧️";
+                        else if (code >= 71 && code <= 77) icon = "❄️";
+                        else if (code >= 80 && code <= 82) icon = "🌦️";
+
+                        document.getElementById("weather-icon-box").innerText = icon;
+                        
+                        // 부모님 가독성 맞춤형 의류 추천 결합 안내문구 생성
+                        var guideText = "📍 오늘의 지역: <strong>" + cityName + "</strong> (" + temp + "°C)<br>";
+                        if (temp <= 11) {
+                            guideText += "🧥 아침저녁으로 꽤 쌀쌀합니다! 경량패딩이나 두꺼운 외투 꼭 챙기세요.";
+                        } else if (temp > 11 && temp <= 18) {
+                            guideText += "🍃 야외활동하기 좋은 선선한 날씨입니다. 얇은 옷을 여러 겹 겹쳐 입으세요.";
+                        } else {
+                            guideText += "☀️ 햇살이 매우 강합니다! 모자, 선글라스, 선크림을 꼭 준비하세요.";
+                        }
+                        document.getElementById("weather-text-box").innerHTML = guideText;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById("weather-text-box").innerHTML = "📍 오늘의 지역: 크라이스트처치<br>✨ 날씨 정보를 안전하게 확인 중입니다.";
                 });
-            });
         }
 
+        // 📅 아코디언 제어
+        function initAccordion() {
+            document.querySelectorAll('.accordion-header').forEach(function(header) {
+                header.addEventListener('click', function() { toggleAccordion(this); });
+            });
+        }
         function toggleAccordion(headerElement) {
             headerElement.classList.toggle('active');
             var content = headerElement.nextElementSibling;
@@ -197,74 +244,71 @@
             }
         }
 
-        // 🚀 스마트 기능: 오늘 날짜 확인 및 자동 포커싱/펼침
+        // 🚀 스마트 스크롤 제어 및 '오늘 일정 기준 도시 날씨' 매칭 연동
         function checkTodaySchedule() {
             var today = new Date();
             
-            // 💡 테스트 팁: 아래 두 줄 주석(//)을 해제하고 날짜를 바꾸면 미리 확인해볼 수 있습니다!
-            // today = new Date("2026-09-28"); // 예시: 2일차 레이아웃 테스트용
+            // 💡 [테스트 모드 활성화 꿀팁]: 아래 줄 맨 앞의 '//'를 지우면 지정한 날짜의 강제 가상 작동 테스트가 가능합니다!
+            // today = new Date("2026-09-28"); 
             
             var year = today.getFullYear();
             var month = today.getMonth() + 1;
             var date = today.getDate();
-
-            // 날짜 포맷팅 (YYYY-MM-DD 형태로 맞춤)
             var formattedDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (date < 10 ? "0" + date : date);
-            
-            // 만약 여행 종료일(10월 11일) 이후라면 자동 이동 기능을 작동하지 않음
-            var endDate = new Date("2026-10-11");
-            if (today >= endDate) {
-                return; // 함수 종료 -> 자연스럽게 그냥 1일차 상단 메인 화면 노출
+
+            // 기본 위치 및 좌표 세팅 (크라이스트처치)
+            var currentCity = "크라이스트처치";
+            var lat = -43.5321;
+            var lon = 172.6362;
+
+            // 날짜별 여행 동선에 맞춘 실시간 자동 좌표 치환 데이터 테이블
+            if (formattedDate === "2026-09-29" || formattedDate === "2026-09-30") {
+                currentCity = "테카포 호수"; lat = -44.0047; lon = 170.4771;
+            } else if (formattedDate >= "2026-10-04" && formattedDate <= "2026-10-07") {
+                currentCity = "로토루아 (북섬)"; lat = -38.1368; lon = 176.2497;
+            } else if (formattedDate >= "2026-10-08" && formattedDate <= "2026-10-10") {
+                currentCity = "오클랜드 (북섬)"; lat = -36.8485; lon = 174.7633;
             }
 
-            // data-date 속성이 오늘 날짜와 일치하는 일차 카드를 찾음
+            // 해당 도시 날씨 실시간 연동 작동
+            fetchSmartWeather(currentCity, lat, lon);
+
+            // 여행 종료일(10월 11일) 이후라면 스크롤 포커싱만 미작동 (날씨는 기본도시 노출)
+            if (today >= new Date("2026-10-11")) return;
+
             var todayCard = document.querySelector('.accordion-item[data-date="' + formattedDate + '"]');
-            
             if (todayCard) {
-                // 1. 해당 카드에 테두리 하이라이트 추가
                 todayCard.classList.add('today-highlight');
-                
-                // 2. 아코디언 자동 펼치기
-                var header = todayCard.querySelector('.accordion-header');
-                toggleAccordion(header);
-                
-                // 3. 부드럽게 해당 일차 위치로 스크롤 이동 (상단 네비바 높이 고려)
+                toggleAccordion(todayCard.querySelector('.accordion-header'));
                 setTimeout(function() {
                     todayCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 400); // 암호창 닫히고 화면이 안정화된 후 부드럽게 이동하기 위한 0.4초 딜레이
+                }, 400);
             }
         }
 
-        // 👀 스크롤 위치 감지해서 상단 메뉴 태그 활성화 (Scroll Spy)
+        // 👀 스크롤 내릴 때 상단 메뉴 탭 불 켜지는 기능 (Scroll Spy)
         function initScrollSpy() {
             var sections = document.querySelectorAll('section, .island-title');
-            var navItems = document.querySelectorAll('.nav-item');
-
             window.addEventListener('scroll', function() {
                 var currentSectionId = "";
                 var scrollPosition = window.scrollY + 130; 
 
                 sections.forEach(function(section) {
-                    var sectionTop = section.offsetTop;
-                    var sectionHeight = section.offsetHeight;
-                    if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
+                    if (scrollPosition >= section.offsetTop && scrollPosition < (section.offsetTop + section.offsetHeight)) {
                         currentSectionId = section.getAttribute('id');
                     }
                 });
 
-                navItems.forEach(function(item) {
-                    var link = item.querySelector('a');
-                    var mainHref = link.getAttribute('href');
-                    
-                    if (currentSectionId === "south-island" || currentSectionId === "north-island") {
-                        document.getElementById('nav-info').classList.remove('active');
-                        document.getElementById('nav-gallery').classList.remove('active');
-                        document.getElementById('nav-schedule').classList.add('active');
-                        return;
-                    }
+                if (currentSectionId === "south-island" || currentSectionId === "north-island") {
+                    document.getElementById('nav-info').classList.remove('active');
+                    document.getElementById('nav-gallery').classList.remove('active');
+                    document.getElementById('nav-schedule').classList.add('active');
+                    return;
+                }
 
+                document.querySelectorAll('.nav-item').forEach(function(item) {
                     item.classList.remove('active');
-                    if (mainHref === "#" + currentSectionId) {
+                    if (item.querySelector('a').getAttribute('href') === "#" + currentSectionId) {
                         item.classList.add('active');
                     }
                 });
@@ -272,13 +316,13 @@
         }
     </script>
 
-    <!-- 📌 고정 네비게이션 바 -->
     <nav id="nav-menu" class="navbar">
         <div class="nav-item" id="nav-info">
             <a href="#info">🚗 안내</a>
             <ul class="dropdown-menu">
                 <li><a href="#info-traffic">교통 안내</a></li>
                 <li><a href="#info-note">부모님 참고사항</a></li>
+                <li><a href="#info-contacts">비상 연락처</a></li>
             </ul>
         </div>
         <div class="nav-item" id="nav-schedule">
@@ -297,32 +341,34 @@
         </div>
     </nav>
 
-    <!-- 🏡 실제 홈페이지 내용 -->
     <div id="main-content" class="container">
         
         <header>
-            <h1>🇳🇿 크라이스트처치<br>가족 여행 가이드</h1>
-            <p>사랑하는 부모님을 위한 따뜻한 힐링 여행</p>
-            <div id="dday-display" class="dday-banner">✈️ D-Day 로딩 중...</div>
+            <h1>🇳🇿 26년 9월<br>뉴질랜드 여행 가이드</h1>
+            <p>3대가 함께하는 따뜻한 힐링 여행</p>
+            <div id="dday-display" class="dday-banner">✈️ D-Day 계산 중...</div>
         </header>
 
-        <!-- 1. 교통 및 인포메이션 -->
-        <section id="info" class="section-card">
-            <h2>🚗 교통 및 가족 안내</h2>
-
-            <!-- 💱 환율 계산기 위젯 -->
-            <div class="exchange-widget">
-                <div id="rate-text" class="exchange-rate-info">💡 실시간 환율 정보 가져오는 중...</div>
-                <div class="exchange-rate-note">* 2시간에 한번 업데이트 되서 5원정도 차이 발생</div>
+        <div class="dashboard-widget">
+            <div class="widget-title">📊 실시간 여행 대시보드</div>
+            
+            <div class="exchange-box">
+                <div id="rate-text" class="exchange-rate-info">💰 환율 정보 불러오는 중...</div>
                 <div class="input-group">
                     <input type="number" id="nzd-input" placeholder="뉴질랜드 달러(NZD) 입력" oninput="calculateCurrency()">
                     <button class="clear-btn" onclick="clearInput()">X</button>
                 </div>
                 <div id="krw-result" class="result-box">= 0 원</div>
-                <a href="https://m.stock.naver.com/marketindex/exchange/FX_NZDKRW" target="_blank" style="display: block; text-align: center; background-color: #03c75a; color: white; padding: 8px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: bold; margin-top: 12px;">
-                    💚 네이버 공식 실시간 환율 차트 보기
-                </a>
             </div>
+
+            <div class="weather-box">
+                <div id="weather-icon-box" class="weather-icon">☀️</div>
+                <div id="weather-text-box" class="weather-info">오늘 일정의 상세 현지 날씨 정보를 실시간으로 계산하여 동기화 중입니다.</div>
+            </div>
+        </div>
+
+        <section id="info" class="section-card">
+            <h2>🚗 안내사항</h2>
             
             <div id="info-traffic">
                 <h3>🛩️ 교통 안내 (Transportation)</h3>
@@ -340,26 +386,48 @@
                     <li><strong>신발:</strong> 잔디밭과 이쁜 자연을 많이 걸으니 꼭 가장 편한 운동화를 신어주세요.</li>
                 </ul>
             </div>
+
+            <div id="info-contacts">
+                <h3>🚨 비상 연락처 (SOS)</h3>
+                <p style="font-size:13px; color:#666; margin-bottom:10px;">버튼을 누르면 스마트폰 전화 걸기로 바로 연결됩니다.</p>
+                <div class="call-btn-group">
+                    <a href="tel:010-1234-5678" class="call-btn">📞 아들 번호</a>
+                    <a href="tel:010-9876-5432" class="call-btn">📞 와이프 번호</a>
+                </div>
+                <div class="call-btn-group">
+                    <a href="tel:111" class="call-btn sos">🚑 현지 긴급신고 (111)</a>
+                </div>
+            </div>
         </section>
 
-        <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
             <h2>🗓️ 상세 여행 일정</h2>
-            <p style="font-size: 13px; color: #666; margin-bottom: 5px;">여행 기간 중에는 '오늘의 일정'이 자동으로 펼쳐집니다.</p>
+            <p style="font-size: 13px; color: #666; margin-bottom: 5px;">여행 당일이 되면 오늘의 일정이 자동으로 확장되어 활성화됩니다.</p>
             
-            <!-- 🏔️ 남섬 일정 그룹 -->
             <div class="island-title" id="south-island">🏔️ 남섬 힐링 대자연 (1일차 ~ 7일차)</div>
             
-            <!-- 💡 [중요] data-date="YYYY-MM-DD" 형태로 날짜를 적어두면 자바스크립트가 알아서 매칭합니다. -->
             <div class="accordion-item" data-date="2026-09-27">
                 <div class="accordion-header">🗓️ 1일차 (9월 27일) - 뉴질랜드 도착 / 남섬 시작 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
-                        <div class="time-block"><div class="time-text">09:30</div><div class="time-desc">크라이스트처치 공항 도착 및 아들 상봉</div></div>
-                        <div class="time-block"><div class="time-text">11:00</div><div class="time-desc">집으로 이동하여 짐 풀기 및 가벼운 휴식</div></div>
-                        <div class="time-block"><div class="time-text">12:30</div><div class="time-desc">점심 식사 (속 편한 따뜻한 음식)</div></div>
-                        <div class="time-block"><div class="time-text">15:00</div><div class="time-desc">보타닉 가든 첫 산책 및 힐링</div></div>
-                        <div class="time-block"><div class="time-text">18:00</div><div class="time-desc">웰컴 저녁 식사 후 휴식</div></div>
+                        <div class="time-block">
+                            <div class="time-text">09:30</div>
+                            <div class="time-desc">크라이스트처치 공항 도착 및 아들 상봉</div>
+                            <a href="https://maps.google.com/?q=Christchurch+International+Airport" target="_blank" class="map-btn">📍 지도</a>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:00</div>
+                            <div class="time-desc">집으로 이동하여 짐 풀기 및 가벼운 휴식</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:00</div>
+                            <div class="time-desc">보타닉 가든 첫 산책 및 힐링 투어</div>
+                            <a href="https://maps.google.com/?q=Christchurch+Botanic+Gardens" target="_blank" class="map-btn">📍 지도</a>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">18:00</div>
+                            <div class="time-desc">웰컴 삼겹살 파티 및 저녁 휴식</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -368,43 +436,52 @@
                 <div class="accordion-header">🗓️ 2일차 (9월 28일) - 크라이스트처치 시내 투어 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
-                        <div class="time-block"><div class="time-text">10:00</div><div class="time-desc">시내 트램(Tram) 탑승 및 도심 구경</div></div>
-                        <div class="time-block"><div class="time-text">12:30</div><div class="time-desc">시내 유명 맛집 점심 식사</div></div>
-                        <div class="time-block"><div class="time-text">15:00</div><div class="time-desc">에이번 강가 산책 또는 카페 티타임</div></div>
+                        <div class="time-block">
+                            <div class="time-text">10:00</div>
+                            <div class="time-desc">시내 명물 트램(Tram) 탑승 및 도심 대구경</div>
+                            <a href="https://maps.google.com/?q=Christchurch+Tram" target="_blank" class="map-btn">📍 지도</a>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:00</div>
+                            <div class="time-desc">에이번 강가 산책 및 멋진 카페 티타임</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-09-29">
-                <div class="accordion-header">🗓️ 3일차 (9월 29일) - 테카포 호수 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 3일차 (9월 29일) - 테카포 대자연 이동 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
-                    <p style="font-size: 14px; color: #555;">여기에 3일차 일정을 추가하시면 됩니다.</p>
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">11:00</div>
+                            <div class="time-desc">렌터카 탑승 후 은하수가 예쁜 테카포 호수로 출발!</div>
+                            <a href="https://maps.google.com/?q=Lake+Tekapo" target="_blank" class="map-btn">📍 지도</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
-            <!-- 🌋 북섬 일정 그룹 (예시 날짜 매칭) -->
             <div class="island-title" id="north-island">🌋 북섬 문화 및 온천 (8일차 ~ 14일차)</div>
 
             <div class="accordion-item" data-date="2026-10-04">
-                <div class="accordion-header">🗓️ 8일차 (10월 4일) - 북섬으로 출발! <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 8일차 (10월 4일) - 북섬 로토루아로 출발! <span class="arrow">▼</span></div>
                 <div class="accordion-content">
-                    <p style="font-size: 14px; color: #555;">국내선을 타고 북섬으로 이동하여 펼쳐지는 새로운 뉴질랜드 여행의 시작입니다. ✈️</p>
+                    <p style="font-size: 14px; color: #555;">국내선을 타고 북섬으로 이동하여 펼쳐지는 뜨끈뜨끈한 유황 온천 힐링의 시작입니다. ♨️</p>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-10-10">
-                <div class="accordion-header">🗓️ 14일차 (10월 10일) - 마지막 날 일정 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 14일차 (10월 10일) - 행복했던 여행의 마무리 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
-                    <p style="font-size: 14px; color: #555;">즐거웠던 여행을 마무리하고 한국으로 돌아갈 준비를 하는 날입니다. 🥲</p>
+                    <p style="font-size: 14px; color: #555;">즐거웠던 3대의 뉴질랜드 대장정을 마무리하고 한국행 비행기를 준비하는 날입니다. 🥲</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. 추억 보관함 -->
         <section id="gallery" class="section-card">
             <h2>📸 우리들의 추억 보관함</h2>
-            
             <div id="gallery-city">
                 <div class="gallery-sub-title">🏙️ 시내 및 힐링 투어 추억</div>
                 <div class="gallery">
@@ -412,7 +489,6 @@
                     <div class="photo-box">보타닉 가든 야외<br>📸</div>
                 </div>
             </div>
-
             <div id="gallery-nature">
                 <div class="gallery-sub-title">🌌 테카포 호수 & 별밤 추억</div>
                 <div class="gallery">
