@@ -34,14 +34,10 @@
             width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
             transition: all 0.3s;
         }
-        
-        /* 🔥 현재 보고 있는 섹션 표시 (태그 강조 스타일) */
         .nav-item.active > a {
             color: #6b8e23; background-color: #f0f5f1;
             border-bottom: 3px solid #6b8e23; box-sizing: border-box;
         }
-
-        /* 🔽 드롭다운 메뉴 스타일 */
         .dropdown-menu {
             display: none; position: absolute; top: 65px; left: 0; width: 100%;
             background-color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -68,11 +64,12 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.03); scroll-margin-top: 85px;
         }
         h2 { color: #556b2f; border-bottom: 2px solid #eff2f0; padding-bottom: 10px; margin-top: 0; font-size: 20px; }
-        h3 { font-size: 16px; color: #333; margin-top: 20px; margin-bottom: 10px; padding-left: 5px; border-left: 3px solid #556b2f; }
+        h3 { font-size: 16px; color: #333; margin-top: 25px; margin-bottom: 10px; padding-left: 5px; border-left: 3px solid #556b2f; }
+        .sub-alert { background-color: #fff5f5; border-left: 3px solid #f87171; padding: 10px; font-size: 13.5px; color: #991b1b; border-radius: 4px; margin: 8px 0; font-weight: bold; line-height: 1.5; }
         ul { padding-left: 20px; margin: 10px 0; }
         li { margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
 
-        /* 💱 최상단 환율 및 날짜별 날씨 통합 대시보드 */
+        /* 💱 대시보드 위젯 스타일 */
         .dashboard-widget { background-color: #ffffff; padding: 18px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #eef2ef; }
         .widget-title { font-size: 14px; font-weight: bold; color: #556b2f; margin-bottom: 12px; display: flex; align-items: center; gap: 5px; }
         .exchange-box { background-color: #f8faf9; padding: 12px; border-radius: 10px; margin-bottom: 15px; }
@@ -82,26 +79,25 @@
         .clear-btn { position: absolute; right: 10px; background: #bbb; color: white; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; display: flex; align-items: center; justify-content: center; padding: 0; }
         .result-box { font-size: 15px; font-weight: bold; color: #d2691e; margin-top: 8px; padding-left: 2px; }
         
-        /* 🌤️ 스마트 날씨 스타일 */
-        .weather-box { background-color: #f1f7f3; padding: 12px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; }
-        .weather-info { font-size: 14px; line-height: 1.5; color: #333; }
-        .weather-icon { font-size: 28px; padding-right: 5px; }
+        /* 🌤️ 스마트 업그레이드 날씨 박스 */
+        .weather-box { background-color: #f1f7f3; padding: 15px; border-radius: 10px; display: flex; align-items: flex-start; gap: 12px; }
+        .weather-info { font-size: 14px; line-height: 1.6; color: #333; flex: 1; }
+        .weather-icon { font-size: 32px; line-height: 1; margin-top: 2px; }
+        .temp-highlight { font-weight: bold; color: #1e293b; }
 
-        /* 남섬/북섬 대구분 서브 타이틀 */
+        /* 비상연락처 텍스트 목록 스타일 */
+        .contact-list { list-style: none; padding-left: 0; margin-top: 10px; }
+        .contact-item { background-color: #f8fafc; padding: 12px 15px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+        .contact-name { font-weight: bold; color: #334155; font-size: 15px; }
+        .contact-phone { font-size: 15px; color: #0284c7; text-decoration: none; font-weight: bold; }
+
         .island-title {
             font-size: 16px; font-weight: bold; color: #ffffff; 
             background-color: #556b2f; padding: 8px 12px; border-radius: 6px;
             margin-top: 25px; margin-bottom: 15px; scroll-margin-top: 85px;
         }
 
-        /* 📞 긴급 연락처 버튼 스타일 */
-        .call-btn-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
-        .call-btn { display: flex; align-items: center; justify-content: center; gap: 5px; background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 8px; text-decoration: none; color: #334155; font-size: 14px; font-weight: bold; transition: background 0.2s; }
-        .call-btn:active { background-color: #f1f5f9; }
-        .call-btn.sos { background-color: #fef2f2; border-color: #fca5a5; color: #991b1b; }
-        .call-btn.sos:active { background-color: #fee2e2; }
-
-        /* 📅 접이식 아코디언 일정 스타일 */
+        /* 📅 일정 아코디언 */
         .accordion-item { border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; scroll-margin-top: 90px;}
         .accordion-header {
             background-color: #f8fafc; padding: 15px; font-weight: bold; font-size: 15px;
@@ -111,22 +107,14 @@
         .accordion-header.active { background-color: #f0f5f1; color: #556b2f; }
         .accordion-item.today-highlight { border: 2px solid #6b8e23; box-shadow: 0 0 10px rgba(107, 142, 35, 0.3); }
         .accordion-item.today-highlight .accordion-header { background-color: #e2ede4; color: #2e4a00; }
-
         .accordion-content { display: none; padding: 15px; background-color: white; border-top: 1px solid #e2e8f0; }
+        
         .timeline { margin-top: 5px; }
         .time-block { display: flex; margin-bottom: 15px; border-left: 3px solid #6b8e23; padding-left: 12px; position: relative; }
         .time-block:last-child { margin-bottom: 0; }
         .time-text { font-weight: bold; color: #6b8e23; min-width: 55px; font-size: 14px; }
         .time-desc { font-size: 14px; line-height: 1.5; word-break: keep-all; padding-right: 65px; flex: 1; }
-        
-        /* 📍 지도보기 버튼 */
         .map-btn { position: absolute; right: 0; top: 0; background-color: #ffffff; border: 1px solid #6b8e23; color: #6b8e23; padding: 4px 8px; font-size: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; }
-        .map-btn:active { background-color: #f0f5f1; }
-
-        /* 📸 사진첩 스타일 */
-        .gallery-sub-title { font-size: 15px; font-weight: bold; color: #556b2f; margin-top: 20px; margin-bottom: 8px; padding-left: 5px; border-left: 3px solid #6b8e23;}
-        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px; }
-        .photo-box { background-color: #eaeaea; height: 110px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 13px; font-style: italic; text-align: center; padding: 5px; box-sizing: border-box; }
     </style>
 </head>
 <body>
@@ -141,14 +129,13 @@
                 fetchExchangeRate(); 
                 initAccordion();     
                 initScrollSpy();     
-                checkTodaySchedule(); // 🚀 오늘 일정 자동 이동 및 날짜별 맞춤 날씨 API 작동
+                checkTodaySchedule(); 
             }
         } else {
             alert("암호가 틀렸습니다. 새로고침을 눌러 다시 시도해주세요.");
             window.stop();
         }
 
-        // ⏱️ 출국 카운트다운 (문구 수정 반영)
         function startDdayCounter() {
             var targetDate = new Date("September 27, 2026 00:00:00").getTime();
             setInterval(function() {
@@ -165,7 +152,6 @@
             }, 1000);
         }
 
-        // 💱 실시간 환율 API
         var currentRate = 884; 
         function fetchExchangeRate() {
             fetch("https://open.er-api.com/v6/latest/NZD")
@@ -176,7 +162,7 @@
                         document.getElementById("rate-text").innerText = "💰 1 NZD = " + Math.round(currentRate) + " 원";
                     }
                 })
-                .catch(error => {
+                .catch(() => {
                     document.getElementById("rate-text").innerText = "💰 1 NZD = 884 원 (기본가)";
                 });
         }
@@ -188,44 +174,66 @@
         }
         function clearInput() { document.getElementById("nzd-input").value = ""; document.getElementById("krw-result").innerText = "= 0 원"; }
 
-        // 🌤️ 스마트 위치 기반 실시간 날씨 API 연동 시스템 (Open-Meteo 무료 서버 활용)
+        // 🌤️ 스마트 날씨 제어 시스템 (최대/최소 기온 및 강수확률 조건 추가 버전)
         function fetchSmartWeather(cityName, lat, lon) {
-            var url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current_weather=true";
+            // 현재 날씨 및 시간별 예측 데이터 동시 요청
+            var url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current_weather=true&hourly=temperature_2m,precipitation_probability";
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    if (data && data.current_weather) {
-                        var temp = Math.round(data.current_weather.temperature);
-                        var code = data.current_weather.weathercode;
+                    if (data && data.current_weather && data.hourly) {
+                        var currentTemp = Math.round(data.current_weather.temperature);
+                        var weatherCode = data.current_weather.weathercode;
                         
-                        // 기상 코드를 직관적인 아이콘으로 번역
+                        // 오전 9시(index 9)부터 오후 9시(index 21) 사이의 최고/최저 기온 및 최대 강수확률 필터링
+                        var daytimeTemps = data.hourly.temperature_2m.slice(9, 22);
+                        var daytimeRainProbs = data.hourly.precipitation_probability.slice(9, 22);
+                        
+                        var maxTemp = Math.round(Math.max.apply(null, daytimeTemps));
+                        var minTemp = Math.round(Math.min.apply(null, daytimeTemps));
+                        var maxRainProb = Math.max.apply(null, daytimeRainProbs); // 활동 시간 중 최대 비 확률
+
+                        // 기상 코드를 아이콘으로 변역
                         var icon = "☀️";
-                        if (code >= 1 && code <= 3) icon = "☁️";
-                        else if (code >= 45 && code <= 48) icon = "🌫️";
-                        else if (code >= 51 && code <= 67) icon = "🌧️";
-                        else if (code >= 71 && code <= 77) icon = "❄️";
-                        else if (code >= 80 && code <= 82) icon = "🌦️";
+                        if (weatherCode >= 1 && weatherCode <= 3) icon = "☁️";
+                        else if (weatherCode >= 45 && weatherCode <= 48) icon = "🌫️";
+                        else if (weatherCode >= 51 && weatherCode <= 67) icon = "🌧️";
+                        else if (weatherCode >= 71 && weatherCode <= 77) icon = "❄️";
+                        else if (weatherCode >= 80 && weatherCode <= 82) icon = "🌦️";
 
                         document.getElementById("weather-icon-box").innerText = icon;
                         
-                        // 부모님 가독성 맞춤형 의류 추천 결합 안내문구 생성
-                        var guideText = "📍 오늘의 지역: <strong>" + cityName + "</strong> (" + temp + "°C)<br>";
-                        if (temp <= 11) {
-                            guideText += "🧥 아침저녁으로 꽤 쌀쌀합니다! 경량패딩이나 두꺼운 외투 꼭 챙기세요.";
-                        } else if (temp > 11 && temp <= 18) {
-                            guideText += "🍃 야외활동하기 좋은 선선한 날씨입니다. 얇은 옷을 여러 겹 겹쳐 입으세요.";
+                        // 1단계 기본 기온 텍스트 빌드업
+                        var guideText = "📍 오늘 지역: <strong>" + cityName + "</strong><br>";
+                        guideText += "🌡️ 현재 <span class='temp-highlight'>" + currentTemp + "°C</span> | 낮 기온 (09시~21시): <span class='temp-highlight'>최저 " + minTemp + "°C / 최고 " + maxTemp + "°C</span><br>";
+                        
+                        // 2단계: 기온 기반 의류 안내 추가
+                        if (currentTemp <= 11) {
+                            guideText += "🧥 아침저녁으로 많이 쌀쌀합니다. 두꺼운 외투나 경량패딩 필수!<br>";
+                        } else if (currentTemp > 11 && currentTemp <= 18) {
+                            guideText += "🍃 선선하고 쾌적한 날씨입니다. 얇은 옷을 여러 겹 겹쳐서 입으세요.<br>";
                         } else {
-                            guideText += "☀️ 햇살이 매우 강합니다! 모자, 선글라스, 선크림을 꼭 준비하세요.";
+                            guideText += "☀️ 햇살이 매우 따스합니다. 가벼운 복장에 선글라스가 좋습니다.<br>";
                         }
+
+                        // 3단계: [신규] 강수 확률 연동 맞춤 가이드 추가
+                        guideText += "💧 오늘 비 확률: <strong>" + maxRainProb + "%</strong> ➡️ ";
+                        if (maxRainProb <= 20) {
+                            guideText += "<span style='color:#16a34a;'>비 소식 없이 대체로 맑거나 무난하여 야외활동하기 좋습니다!</span>";
+                        } else if (maxRainProb > 20 && maxRainProb <= 50) {
+                            guideText += "<span style='color:#ea580c;'>흐려지거나 소나기 가능성이 있으니 가벼운 접이식 우산이나 바람막이를 챙기세요.</span>";
+                        } else {
+                            guideText += "<span style='color:#dc2626; font-weight:bold;'>비 올 확률이 아주 높습니다! 방수 자켓을 입으시고 큰 우산을 꼭 준비하세요.</span>";
+                        }
+
                         document.getElementById("weather-text-box").innerHTML = guideText;
                     }
                 })
                 .catch(() => {
-                    document.getElementById("weather-text-box").innerHTML = "📍 오늘의 지역: 크라이스트처치<br>✨ 날씨 정보를 안전하게 확인 중입니다.";
+                    document.getElementById("weather-text-box").innerHTML = "📍 오늘의 지역: 크라이스트처치<br>✨ 기상청 허브에서 기온 및 세부 정보를 안전하게 매칭 중입니다.";
                 });
         }
 
-        // 📅 아코디언 제어
         function initAccordion() {
             document.querySelectorAll('.accordion-header').forEach(function(header) {
                 header.addEventListener('click', function() { toggleAccordion(this); });
@@ -244,36 +252,29 @@
             }
         }
 
-        // 🚀 스마트 스크롤 제어 및 '오늘 일정 기준 도시 날씨' 매칭 연동
         function checkTodaySchedule() {
             var today = new Date();
             
-            // 💡 [테스트 모드 활성화 꿀팁]: 아래 줄 맨 앞의 '//'를 지우면 지정한 날짜의 강제 가상 작동 테스트가 가능합니다!
-            // today = new Date("2026-09-28"); 
+            // 💡 [가상 테스트존]: 아래 줄 맨 앞의 '//'를 지우고 날짜를 바꾸면 실시간 날씨 스위칭 및 자동 스크롤 테스트가 가능합니다.
+            // today = new Date("2026-09-29"); 
             
             var year = today.getFullYear();
             var month = today.getMonth() + 1;
             var date = today.getDate();
             var formattedDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (date < 10 ? "0" + date : date);
 
-            // 기본 위치 및 좌표 세팅 (크라이스트처치)
-            var currentCity = "크라이스트처치";
-            var lat = -43.5321;
-            var lon = 172.6362;
+            var currentCity = "크라이스트처치"; var lat = -43.5321; var lon = 172.6362;
 
-            // 날짜별 여행 동선에 맞춘 실시간 자동 좌표 치환 데이터 테이블
             if (formattedDate === "2026-09-29" || formattedDate === "2026-09-30") {
                 currentCity = "테카포 호수"; lat = -44.0047; lon = 170.4771;
             } else if (formattedDate >= "2026-10-04" && formattedDate <= "2026-10-07") {
-                currentCity = "로토루아 (북섬)"; lat = -38.1368; lon = 176.2497;
+                currentCity = "로토루아"; lat = -38.1368; lon = 176.2497;
             } else if (formattedDate >= "2026-10-08" && formattedDate <= "2026-10-10") {
-                currentCity = "오클랜드 (북섬)"; lat = -36.8485; lon = 174.7633;
+                currentCity = "오클랜드"; lat = -36.8485; lon = 174.7633;
             }
 
-            // 해당 도시 날씨 실시간 연동 작동
             fetchSmartWeather(currentCity, lat, lon);
 
-            // 여행 종료일(10월 11일) 이후라면 스크롤 포커싱만 미작동 (날씨는 기본도시 노출)
             if (today >= new Date("2026-10-11")) return;
 
             var todayCard = document.querySelector('.accordion-item[data-date="' + formattedDate + '"]');
@@ -286,7 +287,6 @@
             }
         }
 
-        // 👀 스크롤 내릴 때 상단 메뉴 탭 불 켜지는 기능 (Scroll Spy)
         function initScrollSpy() {
             var sections = document.querySelectorAll('section, .island-title');
             window.addEventListener('scroll', function() {
@@ -316,6 +316,7 @@
         }
     </script>
 
+    <!-- 📌 고정 네비게이션 바 -->
     <nav id="nav-menu" class="navbar">
         <div class="nav-item" id="nav-info">
             <a href="#info">🚗 안내</a>
@@ -341,6 +342,7 @@
         </div>
     </nav>
 
+    <!-- 🏡 실제 홈페이지 내용 -->
     <div id="main-content" class="container">
         
         <header>
@@ -349,6 +351,7 @@
             <div id="dday-display" class="dday-banner">✈️ D-Day 계산 중...</div>
         </header>
 
+        <!-- 📊 최상단 실시간 여행 대시보드 (환율 + 업그레이드 날씨) -->
         <div class="dashboard-widget">
             <div class="widget-title">📊 실시간 여행 대시보드</div>
             
@@ -367,18 +370,41 @@
             </div>
         </div>
 
+        <!-- 1. 안내사항 섹션 -->
         <section id="info" class="section-card">
             <h2>🚗 안내사항</h2>
             
+            <!-- ✈️ 교통 안내 파트 (출국-귀국 연달아 배치 및 서브 구조 완벽 개편) -->
             <div id="info-traffic">
-                <h3>🛩️ 교통 안내 (Transportation)</h3>
+                <h3>✈️ 1. 출국 안내</h3>
+                <div class="sub-alert">⚠️ 중요: 오클랜드(AKL) 공항 도착 후, 반드시 수하물을 먼저 직접 픽업하신 다음에 국내선 카운터로 이동하여 크라이스트처치행 체크인을 다시 진행하셔야 합니다!</div>
                 <ul>
-                    <li><strong>항공편:</strong> 싱가포르 항공 (SQ297)</li>
-                    <li><strong>도착 시간:</strong> 크라이스트처치 공항 오전 09:30</li>
-                    <li><strong>픽업 안내:</strong> 아들이 공항 입구에서 차량 대기 중! 내리시면 바로 연결됩니다.</li>
+                    <li><strong>국제선 (대한항공):</strong> 비지니스석, KE1234 (항공편명 입력용)</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 9월 27일 18:00 인천(ICN) 출발 ➡️ 9월 28일 09:35 오클랜드(AKL) 도착</li>
+                    <li><strong>국내선 (Air New Zealand):</strong> 일반석, NZ5678 (항공편명 입력용)</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 9월 28일 12:00 오클랜드(AKL) 출발 ➡️ 9월 28일 13:25 크라이스트처치(CHC) 도착</li>
+                    <li><strong>픽업 안내:</strong> 아들 가족이 크라이스트처치 공항 입구에서 차량과 함께 대기 중입니다! 내리시면 바로 연결됩니다. 😍</li>
+                </ul>
+
+                <h3>✈️ 2. 귀국 안내</h3>
+                <ul>
+                    <li><strong>국제선 (대한항공):</strong> 이코노미석, KE5678 (항공편명 입력용)</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 10일 12:05 오클랜드(AKL) 출발 ➡️ 10월 10일 20:20 인천(ICN) 도착</li>
+                </ul>
+
+                <h3>🏔️ 3. 남섬 투어 교통</h3>
+                <ul>
+                    <li><strong>교통편:</strong> 온 가족이 쾌적하게 이동할 수 있는 <strong>9인승 밴 렌터카</strong> 대기 예정!</li>
+                </ul>
+
+                <h3>🌋 4. 북섬 이동 안내</h3>
+                <ul>
+                    <li><strong>국내선 (Air New Zealand):</strong> 일반석, NZ1234 (항공편명 입력용)</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 7일 12:00 오클랜드(AKL) 출발 ➡️ 10월 7일 13:25 크라이스트처치(CHC) 도착</li>
                 </ul>
             </div>
 
+            <!-- 👴 부모님 참고 사항 -->
             <div id="info-note">
                 <h3>👴 부모님 참고 사항</h3>
                 <ul>
@@ -387,19 +413,28 @@
                 </ul>
             </div>
 
+            <!-- 📞 비상 연락처 (사장님 피드백 반영: 직관적인 번호 노출 형태로 대개조) -->
             <div id="info-contacts">
                 <h3>🚨 비상 연락처 (SOS)</h3>
-                <p style="font-size:13px; color:#666; margin-bottom:10px;">버튼을 누르면 스마트폰 전화 걸기로 바로 연결됩니다.</p>
-                <div class="call-btn-group">
-                    <a href="tel:010-1234-5678" class="call-btn">📞 아들 번호</a>
-                    <a href="tel:010-9876-5432" class="call-btn">📞 와이프 번호</a>
-                </div>
-                <div class="call-btn-group">
-                    <a href="tel:111" class="call-btn sos">🚑 현지 긴급신고 (111)</a>
-                </div>
+                <p style="font-size:13px; color:#666; margin-bottom:10px;">전화번호를 터치하시면 바로 통화 창으로 연결됩니다.</p>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <span class="contact-name">🙋‍♂️ 아들 번호</span>
+                        <a href="tel:010-1234-5678" class="contact-phone">010-1234-5678</a>
+                    </li>
+                    <li class="contact-item">
+                        <span class="contact-name">🙋‍♀️ 와이프 번호</span>
+                        <a href="tel:010-9876-5432" class="contact-phone">010-9876-5432</a>
+                    </li>
+                    <li class="contact-item" style="border-color: #fca5a5; background-color: #fff5f5;">
+                        <span class="contact-name" style="color: #991b1b;">🚑 현지 긴급 신고</span>
+                        <a href="tel:111" class="contact-phone" style="color: #dc2626;">국번없이 111</a>
+                    </li>
+                </ul>
             </div>
         </section>
 
+        <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
             <h2>🗓️ 상세 여행 일정</h2>
             <p style="font-size: 13px; color: #666; margin-bottom: 5px;">여행 당일이 되면 오늘의 일정이 자동으로 확장되어 활성화됩니다.</p>
@@ -407,43 +442,46 @@
             <div class="island-title" id="south-island">🏔️ 남섬 힐링 대자연 (1일차 ~ 7일차)</div>
             
             <div class="accordion-item" data-date="2026-09-27">
-                <div class="accordion-header">🗓️ 1일차 (9월 27일) - 뉴질랜드 도착 / 남섬 시작 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 1일차 (9월 27일) - 한국 출발 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
-                            <div class="time-text">09:30</div>
-                            <div class="time-desc">크라이스트처치 공항 도착 및 아들 상봉</div>
-                            <a href="https://maps.google.com/?q=Christchurch+International+Airport" target="_blank" class="map-btn">📍 지도</a>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">11:00</div>
-                            <div class="time-desc">집으로 이동하여 짐 풀기 및 가벼운 휴식</div>
-                        </div>
-                        <div class="time-block">
                             <div class="time-text">15:00</div>
-                            <div class="time-desc">보타닉 가든 첫 산책 및 힐링 투어</div>
-                            <a href="https://maps.google.com/?q=Christchurch+Botanic+Gardens" target="_blank" class="map-btn">📍 지도</a>
+                            <div class="time-desc">인천공항 제2터미널 집결 및 체크인</div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">18:00</div>
-                            <div class="time-desc">웰컴 삼겹살 파티 및 저녁 휴식</div>
+                            <div class="time-desc">대한항공 항공편 이륙, 기내식 및 편안한 휴식</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-09-28">
-                <div class="accordion-header">🗓️ 2일차 (9월 28일) - 크라이스트처치 시내 투어 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 2일차 (9월 28일) - 뉴질랜드 도착 / 시내 힐링 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
-                            <div class="time-text">10:00</div>
-                            <div class="time-desc">시내 명물 트램(Tram) 탑승 및 도심 대구경</div>
-                            <a href="https://maps.google.com/?q=Christchurch+Tram" target="_blank" class="map-btn">📍 지도</a>
+                            <div class="time-text">09:35</div>
+                            <div class="time-desc">오클랜드 도착 후 수하물 픽업 ➡️ 국내선 환승 이동</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">15:00</div>
-                            <div class="time-desc">에이번 강가 산책 및 멋진 카페 티타임</div>
+                            <div class="time-text">13:25</div>
+                            <div class="time-desc">크라이스트처치 공항 최종 도착 및 아들 가족 상봉!</div>
+                            <a href="https://maps.google.com/?q=Christchurch+International+Airport" target="_blank" class="map-btn">📍 지도</a>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:30</div>
+                            <div class="time-desc">숙소 체크인 후 가벼운 짐 정리 및 휴식</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">17:00</div>
+                            <div class="time-desc">크라이스트처치 보타닉 가든 산책 (편한 신발 필수!)</div>
+                            <a href="https://maps.google.com/?q=Christchurch+Botanic+Gardens" target="_blank" class="map-btn">📍 지도</a>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">18:30</div>
+                            <div class="time-desc">맛있는 웰컴 저녁 식사 및 푹 쉬기</div>
                         </div>
                     </div>
                 </div>
@@ -454,14 +492,13 @@
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
-                            <div class="time-text">11:00</div>
-                            <div class="time-desc">렌터카 탑승 후 은하수가 예쁜 테카포 호수로 출발!</div>
+                            <div class="time-text">10:00</div>
+                            <div class="time-desc">9인승 밴 차량 탑승 후 아름다운 은하수가 펼쳐지는 테카포 호수로 출발!</div>
                             <a href="https://maps.google.com/?q=Lake+Tekapo" target="_blank" class="map-btn">📍 지도</a>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <div class="island-title" id="north-island">🌋 북섬 문화 및 온천 (8일차 ~ 14일차)</div>
 
@@ -480,6 +517,7 @@
             </div>
         </section>
 
+        <!-- 3. 추억 보관함 -->
         <section id="gallery" class="section-card">
             <h2>📸 우리들의 추억 보관함</h2>
             <div id="gallery-city">
