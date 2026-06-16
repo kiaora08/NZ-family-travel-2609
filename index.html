@@ -10,296 +10,320 @@
             font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
             background-color: #f8f9fa;
             color: #333;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             -webkit-text-size-adjust: none;
         }
         .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            box-sizing: border-box;
-            padding: 85px 15px 40px 15px;
-            display: none; 
+            width: 100%; max-width: 600px; margin: 0 auto; box-sizing: border-box;
+            padding: 85px 15px 40px 15px; display: none; 
         }
+
+        /* 📌 상단 고정 메뉴바 및 드롭다운 구조 */
         .navbar {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            z-index: 1000; display: none; justify-content: space-around; align-items: center;
             height: 65px;
         }
-        .navbar a {
-            text-decoration: none;
-            color: #556b2f;
-            font-weight: bold;
-            font-size: 15px;
-            padding: 12px 10px;
-            text-align: center;
-            flex: 1;
+        .nav-item {
+            position: relative; flex: 1; text-align: center; height: 100%;
+            display: flex; align-items: center; justify-content: center;
         }
-        .navbar a:active { background-color: #eaf2ed; }
+        .nav-item > a {
+            text-decoration: none; color: #556b2f; font-weight: bold; font-size: 15px;
+            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        /* 🔥 현재 보고 있는 섹션 표시 (태그 강조 스타일) */
+        .nav-item.active > a {
+            color: #6b8e23; background-color: #f0f5f1;
+            border-bottom: 3px solid #6b8e23; box-sizing: border-box;
+        }
+
+        /* 🔽 드롭다운 메뉴 스타일 */
+        .dropdown-menu {
+            display: none; position: absolute; top: 65px; left: 0; width: 100%;
+            background-color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 0 0 10px 10px; padding: 5px 0; list-style: none; margin: 0;
+        }
+        .dropdown-menu li a {
+            display: block; padding: 12px; text-decoration: none; color: #444;
+            font-size: 14px; border-bottom: 1px solid #f5f5f5; text-align: left; padding-left: 20px;
+        }
+        .dropdown-menu li a:active { background-color: #f9f9f9; }
+        .nav-item:hover .dropdown-menu { display: block; } /* 터치/마우스 오버 시 열림 */
 
         header {
-            text-align: center;
-            padding: 35px 20px;
-            background: linear-gradient(135deg, #6b8e23, #556b2f);
-            color: white;
-            border-radius: 15px;
-            margin-bottom: 20px;
+            text-align: center; padding: 35px 20px;
+            background: linear-gradient(135deg, #6b8e23, #556b2f); color: white; border-radius: 15px; margin-bottom: 20px;
         }
         header h1 { font-size: 24px; margin: 0 0 10px 0; word-break: keep-all; }
-        
-        /* ⏰ D-Day 전광판 스타일 */
-        .dday-banner {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-        }
+        .dday-banner { background-color: rgba(255, 255, 255, 0.15); padding: 8px 15px; border-radius: 30px; font-size: 14px; font-weight: bold; display: inline-block; margin-top: 10px; }
 
         .section-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            scroll-margin-top: 85px;
+            background: white; padding: 20px; border-radius: 15px; margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03); scroll-margin-top: 85px;
         }
         h2 { color: #556b2f; border-bottom: 2px solid #eff2f0; padding-bottom: 10px; margin-top: 0; font-size: 20px; }
-        h3 { font-size: 17px; color: #444; margin-top: 20px; }
+        h3 { font-size: 17px; color: #444; margin-top: 20px; margin-bottom: 10px; }
         ul { padding-left: 20px; margin: 10px 0; }
         li { margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
 
         /* 💱 환율 계산기 위젯 스타일 */
-        .exchange-widget {
-            background-color: #f1f5f2;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
+        .exchange-widget { background-color: #f1f5f2; padding: 15px; border-radius: 10px; margin-top: 15px; }
+        .exchange-rate-info { font-size: 14px; color: #333; margin-bottom: 5px; font-weight: bold; }
+        .exchange-rate-note { font-size: 12px; color: #666; margin-bottom: 12px; }
+        .input-group { position: relative; display: flex; align-items: center; margin-bottom: 10px; }
+        .input-group input { width: 100%; padding: 12px 40px 12px 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .clear-btn { position: absolute; right: 12px; background: #bbb; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .result-box { font-size: 16px; font-weight: bold; color: #d2691e; padding-left: 5px; margin-top: 5px; }
+
+        /* 📅 접이식 아코디언 일정 스타일 */
+        .accordion-item { border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+        .accordion-header {
+            background-color: #f8fafc; padding: 15px; font-weight: bold; font-size: 15px;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            color: #475569; -webkit-tap-highlight-color: transparent;
         }
-        .exchange-rate-info {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .input-group {
-            position: relative;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 12px 40px 12px 12px; /* 우측 X 버튼 공간 확보 */
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-        .clear-btn {
-            position: absolute;
-            right: 12px;
-            background: #bbb;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            line-height: 1;
-        }
-        .result-box {
-            font-size: 16px;
-            font-weight: bold;
-            color: #d2691e;
-            padding-left: 5px;
-            margin-top: 5px;
-        }
-        
-        .timeline { margin-top: 15px; }
-        .time-block { display: flex; margin-bottom: 18px; border-left: 3px solid #6b8e23; padding-left: 15px; }
-        .time-text { font-weight: bold; color: #6b8e23; min-width: 65px; font-size: 15px; }
-        .time-desc { font-size: 15px; line-height: 1.5; word-break: keep-all; }
-        
-        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
-        .photo-box { background-color: #eaeaea; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 13px; font-style: italic; text-align: center; padding: 5px; box-sizing: border-box; }
+        .accordion-header.active { background-color: #f0f5f1; color: #556b2f; }
+        .accordion-content { display: none; padding: 15px; background-color: white; border-top: 1px solid #e2e8f0; }
+        .timeline { margin-top: 5px; }
+        .time-block { display: flex; margin-bottom: 15px; border-left: 3px solid #6b8e23; padding-left: 12px; }
+        .time-block:last-child { margin-bottom: 0; }
+        .time-text { font-weight: bold; color: #6b8e23; min-width: 60px; font-size: 14px; }
+        .time-desc { font-size: 14px; line-height: 1.5; word-break: keep-all; }
+
+        /* 📸 사진첩 탭 내부 세부 타이틀 */
+        .gallery-sub-title { font-size: 15px; font-weight: bold; color: #556b2f; margin-top: 20px; margin-bottom: 8px; padding-left: 5px; border-left: 3px solid #6b8e23;}
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px; }
+        .photo-box { background-color: #eaeaea; height: 110px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 13px; font-style: italic; text-align: center; padding: 5px; box-sizing: border-box; }
     </style>
 </head>
 <body>
 
-    <!-- 🔒 암호 입력 창 -->
     <script>
         var password = prompt("가족 전용 페이지입니다. 비밀번호를 입력해주세요:");
         if (password === "1234") {
             window.onload = function() {
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('nav-menu').style.display = 'flex';
-                startDdayCounter();  // D-day 실시간 카운트 다운 시작
-                fetchExchangeRate(); // 실시간 환율 정보 가져오기
+                startDdayCounter();  
+                fetchExchangeRate(); 
+                initAccordion();     // 접이식 일정 초기화
+                initScrollSpy();     // 스크롤 위치 감지 태그 활성화
             }
         } else {
             alert("암호가 틀렸습니다. 새로고침을 눌러 다시 시도해주세요.");
             window.stop();
         }
 
-        // ⏱️ 9월 27일 출국 D-Day 카운트다운 함수
+        // ⏱️ D-Day 카운트다운 (9월 27일 기준)
         function startDdayCounter() {
             var targetDate = new Date("September 27, 2026 00:00:00").getTime();
-            
             setInterval(function() {
                 var now = new Date().getTime();
                 var distance = targetDate - now;
-                
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 var display = document.getElementById("dday-display");
-                if (distance < 0) {
-                    display.innerHTML = "🎉 드디어 출국 당일입니다! 안전한 여행 되세요! 🎉";
-                } else {
-                    display.innerHTML = "✈️ 부모님 출국까지 " + days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초 남음";
-                }
+                if (distance < 0) { display.innerHTML = "🎉 드디어 출국 당일입니다! 안전한 여행 되세요! 🎉"; }
+                else { display.innerHTML = "✈️ 부모님 출국까지 " + days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초 남음"; }
             }, 1000);
         }
 
-        // 💱 실시간 환율 API 호출 및 계산 함수
-        var currentRate = 880; // API 호출 실패 시 기본 예비 환율 설정
-        
+        // 💱 환율 API 및 계산
+        var currentRate = 884; 
         function fetchExchangeRate() {
-            // 무료 실시간 환율 API 제공소 활용
             fetch("https://open.er-api.com/v6/latest/NZD")
                 .then(response => response.json())
                 .then(data => {
                     if(data && data.rates && data.rates.KRW) {
                         currentRate = data.rates.KRW;
-                        document.getElementById("rate-text").innerText = "💡 실시간 환율: 1 NZD = " + Math.round(currentRate) + " 원";
+                        document.getElementById("rate-text").innerText = "💡 실시간 환율: 1 NZD = " + Math.round(currentRate) + " 원 (유럽 기준)";
                     }
                 })
                 .catch(error => {
-                    console.log("환율 정보를 가져오지 못했습니다. 기본값으로 계산합니다.");
+                    document.getElementById("rate-text").innerText = "💡 실시간 환율: 1 NZD = 884 원 (유럽 기준)";
                 });
         }
-
         function calculateCurrency() {
             var nzdInput = document.getElementById("nzd-input").value;
             var resultBox = document.getElementById("krw-result");
-            
-            if (!nzdInput || isNaN(nzdInput)) {
-                resultBox.innerText = "= 0 원";
-                return;
-            }
-            
-            var krwResult = Math.round(nzdInput * currentRate);
-            resultBox.innerText = "= " + krwResult.toLocaleString() + " 원";
+            if (!nzdInput || isNaN(nzdInput)) { resultBox.innerText = "= 0 원"; return; }
+            resultBox.innerText = "= " + Math.round(nzdInput * currentRate).toLocaleString() + " 원";
+        }
+        function clearInput() { document.getElementById("nzd-input").value = ""; document.getElementById("krw-result").innerText = "= 0 원"; }
+
+        // 📅 접이식 아코디언 작동 함수
+        function initAccordion() {
+            var headers = document.querySelectorAll('.accordion-header');
+            headers.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    var content = this.nextElementSibling;
+                    var arrow = this.querySelector('.arrow');
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                        arrow.innerText = "▼";
+                    } else {
+                        content.style.display = "block";
+                        arrow.innerText = "▲";
+                    }
+                });
+            });
         }
 
-        function clearInput() {
-            document.getElementById("nzd-input").value = "";
-            document.getElementById("krw-result").innerText = "= 0 원";
+        // 👀 스크롤 위치 감지해서 상단 메뉴 태그 활성화 (Scroll Spy)
+        function initScrollSpy() {
+            var sections = document.querySelectorAll('section');
+            var navItems = document.querySelectorAll('.nav-item');
+
+            window.addEventListener('scroll', function() {
+                var currentSectionId = "";
+                var scrollPosition = window.scrollY + 120; // 네비게이션 바 높이 고려 보정값
+
+                sections.forEach(function(section) {
+                    var sectionTop = section.offsetTop;
+                    var sectionHeight = section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(function(item) {
+                    item.classList.remove('active');
+                    var link = item.querySelector('a');
+                    // 드롭다운 메뉴 클릭 링크나 메인 링크 매칭
+                    if (link.getAttribute('href') === "#" + currentSectionId || link.getAttribute('href').includes("#" + currentSectionId)) {
+                        item.classList.add('active');
+                    }
+                });
+            });
         }
     </script>
 
-    <!-- 📌 고정 네비게이션 바 -->
-    <nav id="nav-menu" class="navbar" style="display: none;">
-        <a href="#info">🚗 안내</a>
-        <a href="#schedule">🗓️ 일정</a>
-        <a href="#gallery">📸 사진첩</a>
+    <nav id="nav-menu" class="navbar">
+        <div class="nav-item" id="nav-info">
+            <a href="#info">🚗 안내</a>
+            <ul class="dropdown-menu">
+                <li><a href="#info-traffic">교통 안내</a></li>
+                <li><a href="#info-note">부모님 참고사항</a></li>
+            </ul>
+        </div>
+        <div class="nav-item" id="nav-schedule">
+            <a href="#schedule">🗓️ 일정</a>
+            <ul class="dropdown-menu">
+                <li><a href="#schedule">📅 전체 일정 펼쳐보기</a></li>
+            </ul>
+        </div>
+        <div class="nav-item" id="nav-gallery">
+            <a href="#gallery">📸 사진첩</a>
+            <ul class="dropdown-menu">
+                <li><a href="#gallery-city">도시/시내 투어 사진</a></li>
+                <li><a href="#gallery-nature">자연/테카포 투어 사진</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- 🏡 실제 홈페이지 내용 -->
     <div id="main-content" class="container">
         
         <header>
             <h1>🇳🇿 크라이스트처치<br>가족 여행 가이드</h1>
             <p>사랑하는 부모님을 위한 따뜻한 힐링 여행</p>
-            <!-- D-Day 전광판 표시 영역 -->
             <div id="dday-display" class="dday-banner">✈️ D-Day 로딩 중...</div>
         </header>
 
-        <!-- 1. 교통 및 인포메이션 -->
         <section id="info" class="section-card">
             <h2>🚗 교통 및 가족 안내</h2>
 
-            <!-- 💱 실시간 환율 계산기 위젯 영역 -->
             <div class="exchange-widget">
                 <div id="rate-text" class="exchange-rate-info">💡 실시간 환율 정보 가져오는 중...</div>
+                <div class="exchange-rate-note">* 2시간에 한번 업데이트 되서 5원정도 차이 발생</div>
                 <div class="input-group">
                     <input type="number" id="nzd-input" placeholder="뉴질랜드 달러(NZD) 입력" oninput="calculateCurrency()">
                     <button class="clear-btn" onclick="clearInput()">X</button>
                 </div>
                 <div id="krw-result" class="result-box">= 0 원</div>
+                <a href="https://m.stock.naver.com/marketindex/exchange/FX_NZDKRW" target="_blank" style="display: block; text-align: center; background-color: #03c75a; color: white; padding: 8px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: bold; margin-top: 12px;">
+                    💚 네이버 공식 실시간 환율 차트 보기
+                </a>
             </div>
             
-            <h3>🛩️ 교통 안내 (Transportation)</h3>
-            <ul>
-                <li><strong>항공편:</strong> 싱가포르 항공 (SQ297)</li>
-                <li><strong>도착 시간:</strong> 크라이스트처치 공항 오전 09:30</li>
-                <li><strong>픽업 안내:</strong> 아들이 공항 입구에서 차량 대기 중! 내리시면 바로 연결됩니다.</li>
-            </ul>
+            <div id="info-traffic">
+                <h3>🛩️ 교통 안내 (Transportation)</h3>
+                <ul>
+                    <li><strong>항공편:</strong> 싱가포르 항공 (SQ297)</li>
+                    <li><strong>도착 시간:</strong> 크라이스트처치 공항 오전 09:30</li>
+                    <li><strong>픽업 안내:</strong> 아들이 공항 입구에서 차량 대기 중! 내리시면 바로 연결됩니다.</li>
+                </ul>
+            </div>
 
-            <h3>👴 부모님 참고 사항</h3>
-            <ul>
-                <li><strong>날씨:</strong> 한국과 계절이 반대라 아침저녁으로 꽤 쌀쌀합니다. 걸쳐 입을 수 있는 따뜻한 겉옷을 꼭 챙기세요.</li>
-                <li><strong>신발:</strong> 잔디밭과 이쁜 자연을 많이 걸으니 꼭 가장 편한 운동화를 신어주세요.</li>
-            </ul>
+            <div id="info-note">
+                <h3>👴 부모님 참고 사항</h3>
+                <ul>
+                    <li><strong>날씨:</strong> 한국과 계절이 반대라 아침저녁으로 꽤 쌀쌀합니다. 걸쳐 입을 수 있는 따뜻한 겉옷을 꼭 챙기세요.</li>
+                    <li><strong>신발:</strong> 잔디밭과 이쁜 자연을 많이 걸으니 꼭 가장 편한 운동화를 신어주세요.</li>
+                </ul>
+            </div>
         </section>
 
-        <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
             <h2>🗓️ 상세 여행 일정</h2>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">보고 싶으신 날짜를 누르면 상세 일정이 펼쳐집니다.</p>
             
-            <h3>[Day 1] 도착 및 가벼운 시내 투어</h3>
-            <div class="timeline">
-                <div class="time-block">
-                    <div class="time-text">09:30</div>
-                    <div class="time-desc">크라이스트처치 공항 도착 및 아들 상봉</div>
+            <div class="accordion-item">
+                <div class="accordion-header">🗓️ 1일차 (9월 27일) - 뉴질랜드 도착 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block"><div class="time-text">09:30</div><div class="time-desc">크라이스트처치 공항 도착 및 아들 상봉</div></div>
+                        <div class="time-block"><div class="time-text">11:00</div><div class="time-desc">집으로 이동하여 짐 풀기 및 가벼운 휴식</div></div>
+                        <div class="time-block"><div class="time-text">12:30</div><div class="time-desc">점심 식사 (속 편한 따뜻한 음식)</div></div>
+                        <div class="time-block"><div class="time-text">15:00</div><div class="time-desc">보타닉 가든 첫 산책 및 힐링</div></div>
+                        <div class="time-block"><div class="time-text">18:00</div><div class="time-desc">웰컴 저녁 식사 후 휴식</div></div>
+                    </div>
                 </div>
-                <div class="time-block">
-                    <div class="time-text">11:00</div>
-                    <div class="time-desc">집으로 이동하여 짐 풀기 및 가벼운 휴식</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">🗓️ 2일차 (9월 28일) - 크라이스트처치 시내 투어 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block"><div class="time-text">10:00</div><div class="time-desc">시내 트램(Tram) 탑승 및 도심 구경</div></div>
+                        <div class="time-block"><div class="time-text">12:30</div><div class="time-desc">시내 유명 맛집 점심 식사</div></div>
+                        <div class="time-block"><div class="time-text">15:00</div><div class="time-desc">에이번 강가 산책 또는 카페 티타임</div></div>
+                    </div>
                 </div>
-                <div class="time-block">
-                    <div class="time-text">12:30</div>
-                    <div class="time-desc">점심 식사 (따뜻한 음식으로 속 편하게 시작)</div>
-                </div>
-                <div class="time-block">
-                    <div class="time-text">15:00</div>
-                    <div class="time-desc">보타닉 가든 산책하며 뉴질랜드 자연 만끽하기</div>
-                </div>
-                <div class="time-block">
-                    <div class="time-text">18:00</div>
-                    <div class="time-desc">웰컴 저녁 식사 후 편안한 휴식</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">🗓️ 3일차 ~ 14일차 코밍순... <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <p style="font-size: 14px; color: #555;">아들이 알차고 멋진 대박 일정들로 계속 업데이트 중입니다! 🇳🇿</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. 추억 보관함 -->
         <section id="gallery" class="section-card">
             <h2>📸 우리들의 추억 보관함</h2>
-            <p style="font-size: 14px; color: #666; line-height: 1.4;">여행이 끝난 후 아름다운 순간들의 사진이 이곳에 채워질 예정입니다.</p>
             
-            <div class="gallery">
-                <div class="photo-box">공항 첫 만남<br>📸</div>
-                <div class="photo-box">보타닉 가든<br>📸</div>
-                <div class="photo-box">테카포 호수<br>📸</div>
-                <div class="photo-box">가족 시크릿 컷<br>📸</div>
+            <div id="gallery-city">
+                <div class="gallery-sub-title">🏙️ 시내 및 힐링 투어 추억</div>
+                <div class="gallery">
+                    <div class="photo-box">공항 첫 만남<br>📸</div>
+                    <div class="photo-box">보타닉 가든 야외<br>📸</div>
+                </div>
+            </div>
+
+            <div id="gallery-nature">
+                <div class="gallery-sub-title">🌌 테카포 호수 & 별밤 추억</div>
+                <div class="gallery">
+                    <div class="photo-box">테카포 호수 전경<br>📸</div>
+                    <div class="photo-box">은하수 가족 사진<br>📸</div>
+                </div>
             </div>
         </section>
 
