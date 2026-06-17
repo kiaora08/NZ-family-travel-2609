@@ -323,7 +323,7 @@
     <!-- 📌 고정 네비게이션 바 -->
     <nav id="nav-menu" class="navbar">
         <div class="nav-item" id="nav-info">
-            <a href="#info">🚗 안내</a>
+            <a href="#info">🚗 안내사항</a>
             <ul class="dropdown-menu">
                 <li><a href="#info-traffic">교통 안내</a></li>
                 <li><a href="#info-note">부모님 참고사항</a></li>
@@ -331,7 +331,7 @@
             </ul>
         </div>
         <div class="nav-item" id="nav-schedule">
-            <a href="#schedule">🗓️ 일정</a>
+            <a href="#schedule">🗓️ 여행 일정</a>
             <ul class="dropdown-menu">
                 <li><a href="#schedule-summary">📋 여행 주요 일정</a></li>
                 <li><a href="#south-island">🏔️ 남섬 일정 (1~11일차)</a></li>
@@ -341,8 +341,9 @@
         <div class="nav-item" id="nav-gallery">
             <a href="#gallery">📸 사진첩</a>
             <ul class="dropdown-menu">
-                <li><a href="#gallery-city">도시/시내 투어 사진</a></li>
-                <li><a href="#gallery-nature">자연/테카포 투어 사진</a></li>
+                <li><a href="#gallery-city">크라이스트처치 투어 사진</a></li>
+                <li><a href="#gallery-south">남섬 투어 사진</a></li>
+                <li><a href="#gallery-north">북섬 투어 사진</a></li>
             </ul>
         </div>
     </nav>
@@ -1095,20 +1096,30 @@
         </section>
 
         <!-- 3. 추억 보관함 -->
+        <div id="gallery" style="position: relative; top: -75px;"></div>
         <section id="gallery" class="section-card">
             <h2>📸 우리들의 추억 보관함</h2>
             <div id="gallery-city">
-                <div class="gallery-sub-title">🏙️ 시내 및 힐링 투어 추억</div>
+                <div class="island-title">🏙️ 시내 및 힐링 투어 추억</div>
                 <div class="gallery">
                     <div class="photo-box">공항 첫 만남<br>📸</div>
                     <div class="photo-box">보타닉 가든 야외<br>📸</div>
                 </div>
             </div>
-            <div id="gallery-nature">
-                <div class="gallery-sub-title">🌌 테카포 호수 & 별밤 추억</div>
+            <div id="gallery-south" style="position: relative; top: -75px;"></div>
+            <div id="gallery-south">
+                <div class="island-title">🌌 마운트쿡 & 별밤 추억</div>
                 <div class="gallery">
                     <div class="photo-box">테카포 호수 전경<br>📸</div>
                     <div class="photo-box">은하수 가족 사진<br>📸</div>
+                </div>
+            </div>
+            <div id="gallery-north" style="position: relative; top: -75px;"></div>
+            <div id="gallery-north">
+                <div class="island-title">🌌 로토루아 & 호비튼</div>
+                <div class="gallery">
+                    <div class="photo-box">로토루아<br>📸</div>
+                    <div class="photo-box">호비튼<br>📸</div>
                 </div>
             </div>
         </section>
