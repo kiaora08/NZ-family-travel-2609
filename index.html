@@ -333,8 +333,9 @@
         <div class="nav-item" id="nav-schedule">
             <a href="#schedule">🗓️ 일정</a>
             <ul class="dropdown-menu">
-                <li><a href="#south-island">🏔️ 남섬 일정 (1~7일차)</a></li>
-                <li><a href="#north-island">🌋 북섬 일정 (8~14일차)</a></li>
+                <li><a href="#schedule-summary">📋 여행 주요 일정</a></li>
+                <li><a href="#south-island">🏔️ 남섬 일정 (1~11일차)</a></li>
+                <li><a href="#north-island">🌋 북섬 일정 (12~14일차)</a></li>
             </ul>
         </div>
         <div class="nav-item" id="nav-gallery">
@@ -375,10 +376,12 @@
         </div>
 
         <!-- 1. 안내사항 섹션 -->
+        <div id="info" style="position: relative; top: -75px;"></div>
         <section id="info" class="section-card">
             <h2>🚗 안내사항</h2>
             
             <!-- 📌 교통 안내 파트 -->
+            <div id="info-traffic" style="position: relative; top: -75px;"></div>
             <div id="info-traffic">
                 <div class="sub-heading">🚗 1. 교통 안내</div>
                 
@@ -430,6 +433,7 @@
             </div>
 
             <!-- 📌 부모님 참고 사항 -->
+            <div id="info-note" style="position: relative; top: -75px;"></div>
             <div id="info-note">
                 <div class="sub-heading">👴 2. 부모님 참고 사항</div>
                 <ul>
@@ -439,6 +443,7 @@
             </div>
 
             <!-- 📌 비상 연락처 -->
+            <div id="info-contacts" style="position: relative; top: -75px;"></div>
             <div id="info-contacts">
                 <div class="sub-heading">🚨 3. 비상 연락처 (SOS)</div>
                 <p style="font-size:13px; color:#666; margin-bottom:10px; padding-left: 2px;">전화번호를 터치하시면 바로 통화 창으로 연결됩니다.</p>
@@ -478,7 +483,10 @@
 
         <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
-<h2>🗓️ 상세 여행 일정</h2>
+<h2>🗓️ 여행 일정</h2>
+
+<div id="schedule-summary" style="position: relative; top: -75px;"></div>
+<div class="island-title" >📋 여행 주요 일정 요약</div>
 
 <style>
     .summary-table-container {
@@ -578,7 +586,8 @@
         </tbody>
     </table>
 </div>
-            
+
+            <div id="south-island-anchor" style="position: relative; top: -75px;"></div>
             <div class="island-title" id="south-island">🏔️ 남섬 대자연 일주 (1일차 ~ 11일차)</div>
             
             <div class="accordion-item" data-date="2026-09-27">
@@ -1025,6 +1034,7 @@
                 </div>
             </div>
 
+            <div id="north-island-anchor" style="position: relative; top: -75px;"></div>
             <div class="island-title" id="north-island">🌋 북섬 온천 및 영화 세트장 (12일차 ~ 14일차)</div>
 
             <div class="accordion-item" data-date="2026-10-08">
