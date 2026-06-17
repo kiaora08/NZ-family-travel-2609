@@ -174,7 +174,7 @@
                 .then(data => {
                     if(data && data.rates && data.rates.KRW) {
                         currentRate = data.rates.KRW;
-                        document.getElementById("rate-text").innerText = "💰 1 NZD = " + Math.round(currentRate) + " 원";
+                        document.getElementById("rate-text").innerText = "💰 1 NZD = " + Math.round(currentRate) + " 원 (유럽 기준)";
                     }
                 })
                 .catch(() => {
@@ -425,7 +425,7 @@
                 <div class="step-title">🌋 북섬 이동 안내</div>
                 <ul>
                     <li><strong>국내선 (Air New Zealand):</strong> 일반석, NZ1234</li>
-                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 7일 12:00 오클랜드(AKL) 출발 ➡️ 10월 7일 13:25 크라이스트처치(CHC) 도착</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 8일 09:00 크라이스트처치(CHC) 출발 ➡️ 10월 8일 10:25 오클랜드(AKL) 도착</li>
                 </ul>
             </div>
 
@@ -444,12 +444,12 @@
                 <p style="font-size:13px; color:#666; margin-bottom:10px; padding-left: 2px;">전화번호를 터치하시면 바로 통화 창으로 연결됩니다.</p>
                 <ul class="contact-list">
                     <li class="contact-item">
-                        <span class="contact-name">🙋‍♂️ 아들 번호</span>
-                        <a href="tel:010-1234-5678" class="contact-phone">010-1234-5678</a>
+                        <span class="contact-name">🙋‍♂️ 연우 번호</span>
+                        <a href="tel:020-4013-3485" class="contact-phone">010-1234-5678</a>
                     </li>
                     <li class="contact-item">
-                        <span class="contact-name">🙋‍♀️ 와이프 번호</span>
-                        <a href="tel:010-9876-5432" class="contact-phone">010-9876-5432</a>
+                        <span class="contact-name">🙋‍♀️ 효라 번호</span>
+                        <a href="tel:020-4013-3937" class="contact-phone">010-9876-5432</a>
                     </li>
                     <li class="contact-item" style="border-color: #fca5a5; background-color: #fff5f5;">
                         <span class="contact-name" style="color: #991b1b;">🚑 현지 긴급 신고</span>
@@ -461,83 +461,509 @@
 
         <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
-            <h2>🗓️ 상세 여행 일정</h2>
-            <p style="font-size: 13px; color: #666; margin-bottom: 5px;">여행 당일이 되면 오늘의 일정이 자동으로 확장되어 활성화됩니다.</p>
+<h2>🗓️ 상세 여행 일정</h2>
             
-            <div class="island-title" id="south-island">🏔️ 남섬 힐링 대자연 (1일차 ~ 7일차)</div>
+            <div class="island-title" id="south-island">🏔️ 남섬 대자연 일주 (1일차 ~ 11일차)</div>
             
             <div class="accordion-item" data-date="2026-09-27">
-                <div class="accordion-header">🗓️ 1일차 (9월 27일) - 한국 출발 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 1일차 (9월 27일, 일) - 인천 출발 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
-                            <div class="time-text">15:00</div>
-                            <div class="time-desc">인천공항 제2터미널 집결 및 체크인</div>
+                            <div class="time-text">16:00</div>
+                            <div class="time-desc">인천공항 도착 및 출국 준비 <a href="https://maps.app.goo.gl/9bN6SscZpEymZkK96" target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">18:00</div>
-                            <div class="time-desc">대한항공 항공편 이륙, 기내식 및 편안한 휴식</div>
+                            <div class="time-desc">대한항공 탑승 후 오클랜드로 출발</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-09-28">
-                <div class="accordion-header">🗓️ 2일차 (9월 28일) - 뉴질랜드 도착 / 시내 힐링 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 2일차 (9월 28일, 월) - 크라이스트처치 도착 및 휴식 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
                             <div class="time-text">09:35</div>
-                            <div class="time-desc">오클랜드 도착 후 수하물 픽업 ➡️ 국내선 환승 이동</div>
+                            <div class="time-desc">오클랜드 도착 후 수하물 픽업 ➡️ 국내선 환승 이동 <a href="https://maps.app.goo.gl/Rsh3h3b6bXwY2vHk8" target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">13:25</div>
-                            <div class="time-desc">크라이스트처치 공항 최종 도착 및 아들 가족 상봉!</div>
-                            <a href="https://maps.google.com/?q=Christchurch+International+Airport" target="_blank" class="map-btn">📍 지도</a>
+                            <div class="time-desc">크라이스트처치 공항 최종 도착 및 아들 가족 상봉! <a href="https://maps.app.goo.gl/wJm86Z99tWh6pEwN6" target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">15:30</div>
-                            <div class="time-desc">숙소 체크인 후 가벼운 짐 정리 및 휴식</div>
+                            <div class="time-text">14:30</div>
+                            <div class="time-desc">크라이스트처치 아들 집에서 편안한 휴식~</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">17:00</div>
-                            <div class="time-desc">크라이스트처치 보타닉 가든 산책 (편한 신발 필수!)</div>
-                            <a href="https://maps.google.com/?q=Christchurch+Botanic+Gardens" target="_blank" class="map-btn">📍 지도</a>
+                            <div class="time-text">16:00</div>
+                            <div class="time-desc">가볍게 민하가 다니는 학교 구경</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">18:30</div>
-                            <div class="time-desc">맛있는 웰컴 저녁 식사 및 푹 쉬기</div>
+                            <div class="time-text">17:30</div>
+                            <div class="time-desc">집에서 맛있는 웰컴 저녁 식사 및 푹 쉬기</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-09-29">
-                <div class="accordion-header">🗓️ 3일차 (9월 29일) - 테카포 대자연 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 3일차 (9월 29일, 화) - 크라이스트처치 시내 투어 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
-                            <div class="time-text">10:00</div>
-                            <div class="time-desc">9인승 밴 차량 탑승 후 아름다운 은하수가 펼쳐지는 테카포 호수로 출발!</div>
-                            <a href="https://maps.google.com/?q=Lake+Tekapo" target="_blank" class="map-btn">📍 지도</a>
+                            <div class="time-text">오전</div>
+                            <div class="time-desc">자택 출발, 윌로우뱅크 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:30</div>
+                            <div class="time-desc">윌로우뱅크 관람 + 점심 식사 <a href="https://maps.app.goo.gl/pW2wLz3b8t9MvD7D9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:00</div>
+                            <div class="time-desc">시내(캐시드럴 정션, 트램 시작점) 이동 <a href="https://maps.app.goo.gl/yT6zU7G2BwR2vM6S9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:30</div>
+                            <div class="time-desc">트램 전체 한 바퀴 탑승 (50분 소요)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:20</div>
+                            <div class="time-desc">뉴 리젠트 스트리트 하차, 카페 휴식 <a href="https://maps.app.goo.gl/Wv8Xz7M5bT2V6kNS8" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:00</div>
+                            <div class="time-desc">마가렛 마히 플레이그라운드 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:20</div>
+                            <div class="time-desc">마가렛 마히 플레이그라운드 (아이 놀기, 어르신 휴식) <a href="https://maps.app.goo.gl/Z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">16:30</div>
+                            <div class="time-desc">리버사이드 마켓 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">17:00</div>
+                            <div class="time-desc">리버사이드 마켓 저녁 식사 <a href="https://maps.app.goo.gl/u8W5X7M2bT2V6kNS7" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">저녁</div>
+                            <div class="time-desc">자택 복귀 및 휴식</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="island-title" id="north-island">🌋 북섬 문화 및 온천 (8일차 ~ 14일차)</div>
+            <div class="accordion-item" data-date="2026-09-30">
+                <div class="accordion-header">🗓️ 4일차 (9월 30일, 수) - 테카포 호수와 마운트쿡 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">08:00</div>
+                            <div class="time-desc">자택 출발</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">09:00</div>
+                            <div class="time-desc">제럴딘 도착, 짧은 휴식 (카페, 화장실, 작은 마을 산책) <a href="https://maps.app.goo.gl/v8M5X7W2bT2V6kNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">09:30</div>
+                            <div class="time-desc">레이크 테카포 방향 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:30</div>
+                            <div class="time-desc">레이크 테카포 도착, 호수 + 선한 목자의 교회 사진 촬영 <a href="https://maps.app.goo.gl/Wv6Xz7M5bT2V6kNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:00</div>
+                            <div class="time-desc">레이크 푸카키 방향 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:30</div>
+                            <div class="time-desc">레이크 푸카키 전망 포인트 (마운트쿡이 호수 너머로 보이는 명당) <a href="https://maps.app.goo.gl/X8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:50</div>
+                            <div class="time-desc">연어팜 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">12:10</div>
+                            <div class="time-desc">연어팜에서 점심 식사 🐟 <a href="https://maps.app.goo.gl/Y8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:00</div>
+                            <div class="time-desc">마운트쿡 빌리지로 최종 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:00</div>
+                            <div class="time-desc">숙소 체크인 및 짐 정리</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:30</div>
+                            <div class="time-desc">더 허미타지 호텔 주변 산책, 카페에서 전망 감상 <a href="https://maps.app.goo.gl/Z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">16:30</div>
+                            <div class="time-desc">(선택 일정) 후커밸리 트랙 초입까지 짧게 다녀오기 <a href="https://maps.app.goo.gl/a8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">18:30</div>
+                            <div class="time-desc">저녁 식사 (18:30 ~ 20:00)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">20:00</div>
+                            <div class="time-desc">이후 날씨 좋으면 밤하늘 별 보기</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-01">
+                <div class="accordion-header">🗓️ 5일차 (10월 1일, 목) - 와나카 경유 퀸스타운 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">08:00</div>
+                            <div class="time-desc">마운트쿡 출발 후 린디스 패스 방향 이동 (약 2시간 소요)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:00</div>
+                            <div class="time-desc">린디스 패스 전망 포인트 휴게 (사진 촬영, 화장실) <a href="https://maps.app.goo.gl/b8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:20</div>
+                            <div class="time-desc">와나카 이동 시작</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:20</div>
+                            <div class="time-desc">와나카 도착 — 그 나무 사진 촬영 및 호수 산책 🌳 <a href="https://maps.app.goo.gl/c8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">12:20</div>
+                            <div class="time-desc">와나카에서 점심 식사 (12:20 ~ 13:20)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:20</div>
+                            <div class="time-desc">(선택 일정) 퍼즐링월드 관람 <a href="https://maps.app.goo.gl/d8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:20</div>
+                            <div class="time-desc">카드로나 이동, 카드로나 호텔 짧게 들르기 <a href="https://maps.app.goo.gl/e8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:50</div>
+                            <div class="time-desc">크라운 레인지 넘어 퀸스타운 이동 (전망대 잠깐 정차 및 사진 촬영) <a href="https://maps.app.goo.gl/f8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:50</div>
+                            <div class="time-desc">퀸스타운 도착 및 숙소 체크인</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">18:30</div>
+                            <div class="time-desc">저녁 식사 (와카티푸 호수 뷰 레스토랑, 18:30 ~ 20:00) <a href="https://maps.app.goo.gl/g8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">20:00</div>
+                            <div class="time-desc">이후 자유시간 및 호수변 밤 산책</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-02">
+                <div class="accordion-header">🗓️ 6일차 (10월 2일, 금) - 밀포드사운드 가이드 투어 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">06:00</div>
+                            <div class="time-desc">새벽 기상 및 간단한 준비</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">06:30</div>
+                            <div class="time-desc">픽업 또는 투어 출발 (퀸스타운 → 테아나우 방향 이동)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">09:30</div>
+                            <div class="time-desc">테아나우 휴게 (화장실 이용 및 스트레칭) <a href="https://maps.app.goo.gl/h8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">09:50</div>
+                            <div class="time-desc">테아나우 → 밀포드사운드 이동 (미러레이크, 호머 터널 등 경유) <a href="https://maps.app.goo.gl/i8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:30</div>
+                            <div class="time-desc">밀포드사운드 도착 및 승선 준비</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">12:00</div>
+                            <div class="time-desc">🚢 밀포드사운드 크루즈 탑승 관람 (1.5 ~ 2시간 소요) <a href="https://maps.app.goo.gl/j8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:00</div>
+                            <div class="time-desc">하선 후 점심 식사 (투어 포함 도시락 등)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:30</div>
+                            <div class="time-desc">밀포드사운드 → 테아나우 방향 귀환 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">17:00</div>
+                            <div class="time-desc">테아나우 휴게소 정차</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">17:20</div>
+                            <div class="time-desc">테아나우 → 퀸스타운 귀환 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">19:30</div>
+                            <div class="time-desc">퀸스타운 도착 및 숙소 복귀</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">20:00</div>
+                            <div class="time-desc">늦은 저녁 식사 (숙소 근처에서 가볍게)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-03">
+                <div class="accordion-header">🗓️ 7일차 (10월 3일, 토) - 퀸스타운 투어 후 더니든 야간 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">09:00</div>
+                            <div class="time-desc">기상 및 늦은 아침 식사 (전날 강행군 회복)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:00</div>
+                            <div class="time-desc">스카이라인 곤돌라 매표소로 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:20</div>
+                            <div class="time-desc">🚡 스카이라인 곤돌라 탑승 후 전망대 이동 <a href="https://maps.app.goo.gl/k8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:00</div>
+                            <div class="time-desc">루지 탑승 🎿 (아이는 체험, 어르신은 전망대 카페 휴식 및 뷰 감상)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">12:00</div>
+                            <div class="time-desc">곤돌라 전망대 레스토랑 점심 식사 (퀸스타운 전경 감상)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:00</div>
+                            <div class="time-desc">곤돌라 하산</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:30</div>
+                            <div class="time-desc">와카티푸 호수 선착장 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:00</div>
+                            <div class="time-desc">TSS 언슬로 유람선 탑승 투어 (45분 항해) ⛵ <a href="https://maps.app.goo.gl/m8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:45</div>
+                            <div class="time-desc">선착장 복귀 후 자유시간</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:15</div>
+                            <div class="time-desc">아로우타운 이동 (차량 약 20분 소요)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">15:45</div>
+                            <div class="time-desc">아로우타운 골드러시 옛 거리 산책 및 기념품숍 구경 🏘️ <a href="https://maps.app.goo.gl/n8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">16:45</div>
+                            <div class="time-desc">퀸스타운 시내로 복귀</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">17:30</div>
+                            <div class="time-desc">퀸스타운에서 이른 저녁 식사 (호수 뷰 레스토랑, 17:30 ~ 18:30)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">18:30</div>
+                            <div class="time-desc">🚗 더니든 방향 야간 장거리 운전 이동 시작 (약 3.5시간 소요)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">19:00</div>
+                            <div class="time-desc">1차 구간 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">20:00</div>
+                            <div class="time-desc">중간 휴게 (알렉산드라 또는 록스버그 근처, 화장실 및 스트레칭) <a href="https://maps.app.goo.gl/o8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">20:20</div>
+                            <div class="time-desc">2차 구간 이동 및 더니든 진입</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">21:50</div>
+                            <div class="time-desc">더니든 숙소 도착 및 늦은 체크인 진행 (21:50 ~ 22:20)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="accordion-item" data-date="2026-10-04">
-                <div class="accordion-header">🗓️ 8일차 (10월 4일) - 북섬 로토루아로 출발! <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 8일차 (10월 4일, 일) - 고풍스러운 더니든 명소 투어 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
-                    <p style="font-size: 14px; color: #555;">국내선을 타고 북섬으로 이동하여 펼쳐지는 뜨끈뜨끈한 유황 온천 힐링의 시작입니다. ♨️</p>
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">09:00</div>
+                            <div class="time-desc">기상 및 아침 식사 (숙소 또는 근처 카페)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:00</div>
+                            <div class="time-desc">마우리 힐 방문 <a href="https://maps.app.goo.gl/p8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">10:30</div>
+                            <div class="time-desc">존 맥글레이션 컬리지 구경 <a href="https://maps.app.goo.gl/q8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">11:00</div>
+                            <div class="time-desc">조지 스트리트 구경 <a href="https://maps.app.goo.gl/r8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">12:00</div>
+                            <div class="time-desc">더니든 시내에서 점심 식사</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:00</div>
+                            <div class="time-desc">볼드윈 스트리트(세계에서 가장 가파른 길) 및 DNI 명소 방문 <a href="https://maps.app.goo.gl/s8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:30</div>
+                            <div class="time-desc">올드 더니든 기차역으로 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">13:50</div>
+                            <div class="time-desc">올드 더니든 역 — 역사적 건물 내부 및 외관 관람 🚂 <a href="https://maps.app.goo.gl/t8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:30</div>
+                            <div class="time-desc">라나크 캐슬로 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">14:50</div>
+                            <div class="time-desc">라나크 캐슬 성 내부 및 정원 관람 🏰 (어르신 정원 벤치 휴식 가능) <a href="https://maps.app.goo.gl/u8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">16:20</div>
+                            <div class="time-desc">숙소 복귀 및 자유 휴식 시간 (~18:00)</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">18:30</div>
+                            <div class="time-desc">더니든 시내에서 저녁 식사</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-05">
+                <div class="accordion-header">🗓️ 9일차 (10월 5일, 월) - 오마루 펭귄 관람 및 치치 복귀 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">오전</div>
+                            <div class="time-desc">더니든 출발 후 크라이스트처치 방향 상행 드라이브</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">오후</div>
+                            <div class="time-desc">중간 기점 오마루(Oamaru) 경유하여 블루펭귄 서식지 관람 🐧 <a href="https://maps.app.goo.gl/v8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">저녁</div>
+                            <div class="time-desc">크라이스트처치 자택 안전 귀환 및 휴식</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-06">
+                <div class="accordion-header">🗓️ 10일차 (10월 6일, 화) - 크라이스트처치 자택 휴식 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">종일</div>
+                            <div class="time-desc">🏡 장거리 로드트립의 여독을 풀며 온 가족 자택에서 편안한 힐링 및 충전</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-07">
+                <div class="accordion-header">🗓️ 11일차 (10월 7일, 수) - 크라이스트처치 자택 휴식 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">종일</div>
+                            <div class="time-desc">내일 북섬 이동을 대비한 짐 정리 및 크라이스트처치에서의 여유로운 마지막 날 정돈</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="island-title" id="north-island">🌋 북섬 온천 및 영화 세트장 (12일차 ~ 14일차)</div>
+
+            <div class="accordion-item" data-date="2026-10-08">
+                <div class="accordion-header">🗓️ 12일차 (10월 8일, 목) - 북섬 이동 및 로토루아 마오리쇼 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">오전</div>
+                            <div class="time-desc">오전 비행기 탑승하여 크라이스트처치에서 오클랜드 공항으로 이동</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">오후</div>
+                            <div class="time-desc">오클랜드 도착 후 차량 수령 및 유황 온천 도시 로토루아로 이동 <a href="https://maps.app.goo.gl/w8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">저녁</div>
+                            <div class="time-desc">🔥 마오리 문화쇼 관람 및 전통 지열 요리 '항이' 저녁 식사 <a href="https://maps.app.goo.gl/x8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-date="2026-10-09">
+                <div class="accordion-header">🗓️ 13일차 (10월 9일, 금) - 호비톤 영화세트장 및 오클랜드 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-content">
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">오전</div>
+                            <div class="time-desc">로토루아 체크아웃 후 마타마타 호비톤 마을로 출발</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">낮</div>
+                            <div class="time-desc">호비톤 영화 세트장(Hobbiton Movie Set) 동화 테마 투어 💚 <a href="https://maps.app.goo.gl/y8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">오후</div>
+                            <div class="time-desc">오클랜드로 최종 복귀 이동, 숙소 체크인 및 마지막 밤 식사 <a href="https://maps.app.goo.gl/z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-10-10">
-                <div class="accordion-header">🗓️ 14일차 (10월 10일) - 행복했던 여행의 마무리 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 14일차 (10월 10일, 토) - 공항 이동 및 한국 출국 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
-                    <p style="font-size: 14px; color: #555;">즐거웠던 3대의 뉴질랜드 대장정을 마무리하고 한국행 비행기를 준비하는 날입니다. 🥲</p>
+                    <div class="timeline">
+                        <div class="time-block">
+                            <div class="time-text">오전</div>
+                            <div class="time-desc">공항 이동, 차량 반납 및 출국 수속 완료 <a href="https://maps.app.goo.gl/Rsh3h3b6bXwY2vHk8" target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-text">낮</div>
+                            <div class="time-desc">🛫 대한항공 비행기 탑승 후 한국으로 최종 출국</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
