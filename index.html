@@ -445,23 +445,139 @@
                 <ul class="contact-list">
                     <li class="contact-item">
                         <span class="contact-name">🙋‍♂️ 연우 번호</span>
-                        <a href="tel:020-4013-3485" class="contact-phone">010-1234-5678</a>
+                        <a href="tel:020-4013-3485" class="contact-phone">020-4013-3485</a>
                     </li>
                     <li class="contact-item">
                         <span class="contact-name">🙋‍♀️ 효라 번호</span>
-                        <a href="tel:020-4013-3937" class="contact-phone">010-9876-5432</a>
+                        <a href="tel:020-4013-3937" class="contact-phone">020-4013-3937</a>
                     </li>
                     <li class="contact-item" style="border-color: #fca5a5; background-color: #fff5f5;">
                         <span class="contact-name" style="color: #991b1b;">🚑 현지 긴급 신고</span>
                         <a href="tel:111" class="contact-phone" style="color: #dc2626;">국번없이 111</a>
                     </li>
                 </ul>
+                <!-- 🏡 크라이스트처치 자택 주소 (기존 코드 수정 없이 추가) -->
+                <div style="margin-top: 15px; padding: 15px; background-color: #f1f5f9; border-left: 4px solid #475569; border-radius: 4px 8px 8px 4px;">
+                    <div style="font-size: 14px; font-weight: bold; color: #475569; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                        🏡 크라이스트처치 집 주소
+                    </div>
+                    <div style="font-size: 14.5px; color: #334155; line-height: 1.5; font-weight: bold; word-break: keep-all;">
+                            15 Orr St Wigram Christchurch 8042 NZ <br>
+                        <span style="font-size: 13px; color: #64748b; font-weight: normal; display: block; margin-top: 4px;">
+                            (여행지별 숙소) <br>
+                            마운트쿡 :  <br>
+                            퀸즈타운 :  <br>
+                            더니든 : <br>
+                            로토루아 : <br>
+                            오클랜드 : <br>
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
 <h2>🗓️ 상세 여행 일정</h2>
+
+<style>
+    .summary-table-container {
+        margin: 20px 0;
+        border: 1px solid #dde3de;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+    .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 14px;
+    }
+    .summary-table th {
+        background-color: #556b2f;
+        color: #ffffff;
+        padding: 10px 12px;
+        font-weight: bold;
+    }
+    .summary-table td {
+        padding: 12px;
+        border-bottom: 1px solid #eff2f0;
+        color: #444444;
+        line-height: 1.4;
+    }
+    .summary-table tr:last-child td {
+        border-bottom: none;
+    }
+    .summary-table tr:nth-child(even) {
+        background-color: #fcfdfe;
+    }
+    .badge-south {
+        background-color: #e2ede4;
+        color: #2e4a00;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .badge-north {
+        background-color: #fef3c7;
+        color: #92400e;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="summary-table-container">
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th style="width: 20%;">일자</th>
+                <th style="width: 30%;">주요 장소</th>
+                <th style="width: 50%;">핵심 일정 요약</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1~3일차</strong></td>
+                <td><span class="badge-south">남섬</span> 크라이스트처치</td>
+                <td>인천 출발, 아들 가족 상봉 및 시내·트램 투어 🚋</td>
+            </tr>
+            <tr>
+                <td><strong>4일차</strong></td>
+                <td><span class="badge-south">남섬</span> 마운트쿡</td>
+                <td>테카포·푸카키 호수 절경 관람 및 연어 맛집 🐟</td>
+            </tr>
+            <tr>
+                <td><strong>5~7일차</strong></td>
+                <td><span class="badge-south">남섬</span> 퀸스타운</td>
+                <td>밀포드사운드 크루즈선 🚢, 곤돌라 및 루지 체험</td>
+            </tr>
+            <tr>
+                <td><strong>8~9일차</strong></td>
+                <td><span class="badge-south">남섬</span> 더니든 / 오마루</td>
+                <td>고풍스러운 성·기차역 투어 및 블루펭귄 관람 🐧</td>
+            </tr>
+            <tr>
+                <td><strong>10~11일차</strong></td>
+                <td><span class="badge-south">남섬</span> 크라이스트처치</td>
+                <td>장거리 로드트립 여독 풀기, 자택 휴식 및 힐링 🏡</td>
+            </tr>
+            <tr>
+                <td><strong>12일차</strong></td>
+                <td><span class="badge-north">북섬</span> 로토루아</td>
+                <td>북섬 항공 이동, 마오리 문화쇼 및 지열 요리 '항이' 🌋</td>
+            </tr>
+            <tr>
+                <td><strong>13~14일차</strong></td>
+                <td><span class="badge-north">북섬</span> 오클랜드</td>
+                <td>호비톤 동화 마을 투어 후 오클랜드 복귀 & 귀국</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
             
             <div class="island-title" id="south-island">🏔️ 남섬 대자연 일주 (1일차 ~ 11일차)</div>
             
