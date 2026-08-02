@@ -1,150 +1,478 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>3대가 함께하는 뉴질랜드 여행 가이드</title>
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
             background-color: #f8f9fa;
             color: #333;
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             -webkit-text-size-adjust: none;
         }
+
         .container {
-            width: 100%; max-width: 600px; margin: 0 auto; box-sizing: border-box;
-            padding: 85px 15px 40px 15px; display: none; 
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 85px 15px 40px 15px;
+            display: none;
         }
 
         /* 📌 상단 고정 메뉴바 및 드롭다운 구조 */
         .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            z-index: 1000; display: none; justify-content: space-around; align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            display: none;
+            justify-content: space-around;
+            align-items: center;
             height: 65px;
         }
+
         .nav-item {
-            position: relative; flex: 1; text-align: center; height: 100%;
-            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            flex: 1;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .nav-item > a {
-            text-decoration: none; color: #556b2f; font-weight: bold; font-size: 15px;
-            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+
+        .nav-item>a {
+            text-decoration: none;
+            color: #556b2f;
+            font-weight: bold;
+            font-size: 15px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
         }
-        .nav-item.active > a {
-            color: #6b8e23; background-color: #f0f5f1;
-            border-bottom: 3px solid #6b8e23; box-sizing: border-box;
+
+        .nav-item.active>a {
+            color: #6b8e23;
+            background-color: #f0f5f1;
+            border-bottom: 3px solid #6b8e23;
+            box-sizing: border-box;
         }
+
         .dropdown-menu {
-            display: none; position: absolute; top: 65px; left: 0; width: 100%;
-            background-color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-radius: 0 0 10px 10px; padding: 5px 0; list-style: none; margin: 0;
+            display: none;
+            position: absolute;
+            top: 65px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 10px 10px;
+            padding: 5px 0;
+            list-style: none;
+            margin: 0;
         }
+
         .dropdown-menu li a {
-            display: block; padding: 12px; text-decoration: none; color: #444;
-            font-size: 13px; border-bottom: 1px solid #f5f5f5; text-align: left; padding-left: 15px;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: #444;
+            font-size: 13px;
+            border-bottom: 1px solid #f5f5f5;
+            text-align: left;
+            padding-left: 15px;
             font-weight: normal;
         }
-        .dropdown-menu li a:active { background-color: #f9f9f9; }
-        .nav-item:hover .dropdown-menu { display: block; } 
+
+        .dropdown-menu li a:active {
+            background-color: #f9f9f9;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
 
         header {
-            text-align: center; padding: 35px 20px;
-            background: linear-gradient(135deg, #6b8e23, #556b2f); color: white; border-radius: 15px; margin-bottom: 20px;
+            text-align: center;
+            padding: 35px 20px;
+            background: linear-gradient(135deg, #6b8e23, #556b2f);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
         }
-        header h1 { font-size: 24px; margin: 0 0 10px 0; word-break: keep-all; }
-        header p { margin: 0; font-size: 15px; opacity: 0.9; }
-        .dday-banner { background-color: rgba(255, 255, 255, 0.15); padding: 8px 15px; border-radius: 30px; font-size: 13px; font-weight: bold; display: inline-block; margin-top: 12px; }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            word-break: keep-all;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .dday-banner {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 12px;
+        }
 
         .section-card {
-            background: white; padding: 20px; border-radius: 15px; margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03); scroll-margin-top: 85px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            scroll-margin-top: 85px;
         }
-        h2 { color: #556b2f; border-bottom: 2px solid #eff2f0; padding-bottom: 10px; margin-top: 0; font-size: 20px; }
-        
+
+        h2 {
+            color: #556b2f;
+            border-bottom: 2px solid #eff2f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
         /* 📌 대분류 소제목 스타일 수정 (구분감 확실하게) */
         .sub-heading {
-            font-size: 17px; color: #3e4f22; background-color: #f1f5f2; 
-            padding: 10px 12px; border-radius: 8px; font-weight: bold;
-            margin-top: 30px; margin-bottom: 15px; border-left: 4px solid #556b2f;
+            font-size: 17px;
+            color: #3e4f22;
+            background-color: #f1f5f2;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #556b2f;
         }
-        
+
         /* ✈️ 출국/귀국 내부 단계용 타이틀 */
-        .step-title { font-size: 15px; color: #333; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
-        
-        .sub-alert { background-color: #fff5f5; border-left: 3px solid #f87171; padding: 12px; font-size: 13.5px; color: #991b1b; border-radius: 4px; margin: 12px 0; font-weight: bold; line-height: 1.5; }
-        ul { padding-left: 20px; margin: 10px 0; }
-        li { margin-bottom: 12px; font-size: 15px; line-height: 1.6; }
+        .step-title {
+            font-size: 15px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .sub-alert {
+            background-color: #fff5f5;
+            border-left: 3px solid #f87171;
+            padding: 12px;
+            font-size: 13.5px;
+            color: #991b1b;
+            border-radius: 4px;
+            margin: 12px 0;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
 
         /* 📸 사진+문구 매칭 카드 스타일 */
-        .photo-instruction-card { margin: 15px 0; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px dashed #cbd5e1; }
-        .photo-instruction-card img { width: 100%; height: auto; border-radius: 6px; display: block; margin-bottom: 10px; }
-        .photo-instruction-card p { font-size: 14px; color: #334155; margin: 0; line-height: 1.5; font-weight: bold; }
+        .photo-instruction-card {
+            margin: 15px 0;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .photo-instruction-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .photo-instruction-card p {
+            font-size: 14px;
+            color: #334155;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: bold;
+        }
 
         /* 💱 대시보드 위젯 스타일 */
-        .dashboard-widget { background-color: #ffffff; padding: 18px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #eef2ef; }
-        .widget-title { font-size: 14px; font-weight: bold; color: #556b2f; margin-bottom: 12px; display: flex; align-items: center; gap: 5px; }
-        .exchange-box { background-color: #f8faf9; padding: 12px; border-radius: 10px; margin-bottom: 15px; }
-        .exchange-rate-info { font-size: 14px; color: #333; margin-bottom: 8px; font-weight: bold; }
-        .input-group { position: relative; display: flex; align-items: center; }
-        .input-group input { width: 100%; padding: 10px 40px 10px 10px; font-size: 15px; border: 1px solid #dde3de; border-radius: 6px; box-sizing: border-box; }
-        .clear-btn { position: absolute; right: 10px; background: #bbb; color: white; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; display: flex; align-items: center; justify-content: center; padding: 0; }
-        .result-box { font-size: 15px; font-weight: bold; color: #d2691e; margin-top: 8px; padding-left: 2px; }
-        
+        .dashboard-widget {
+            background-color: #ffffff;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2ef;
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #556b2f;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .exchange-box {
+            background-color: #f8faf9;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .exchange-rate-info {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 40px 10px 10px;
+            font-size: 15px;
+            border: 1px solid #dde3de;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            background: #bbb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .result-box {
+            font-size: 15px;
+            font-weight: bold;
+            color: #d2691e;
+            margin-top: 8px;
+            padding-left: 2px;
+        }
+
         /* 🌤️ 스마트 업그레이드 날씨 박스 */
-        .weather-box { background-color: #f1f7f3; padding: 15px; border-radius: 10px; display: flex; align-items: flex-start; gap: 12px; }
-        .weather-info { font-size: 14px; line-height: 1.6; color: #333; flex: 1; }
-        .weather-icon { font-size: 32px; line-height: 1; margin-top: 2px; }
-        .temp-highlight { font-weight: bold; color: #1e293b; }
+        .weather-box {
+            background-color: #f1f7f3;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .weather-info {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            flex: 1;
+        }
+
+        .weather-icon {
+            font-size: 32px;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .temp-highlight {
+            font-weight: bold;
+            color: #1e293b;
+        }
 
         /* 비상연락처 텍스트 목록 스타일 */
-        .contact-list { list-style: none; padding-left: 0; margin-top: 10px; }
-        .contact-item { background-color: #f8fafc; padding: 12px 15px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
-        .contact-name { font-weight: bold; color: #334155; font-size: 15px; }
-        .contact-phone { font-size: 15px; color: #0284c7; text-decoration: none; font-weight: bold; }
+        .contact-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            background-color: #f8fafc;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-name {
+            font-weight: bold;
+            color: #334155;
+            font-size: 15px;
+        }
+
+        .contact-phone {
+            font-size: 15px;
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
         .island-title {
-            font-size: 16px; font-weight: bold; color: #ffffff; 
-            background-color: #556b2f; padding: 8px 12px; border-radius: 6px;
-            margin-top: 25px; margin-bottom: 15px; scroll-margin-top: 85px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #556b2f;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            scroll-margin-top: 85px;
         }
 
         /* 📅 일정 아코디언 */
-        .accordion-item { border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; scroll-margin-top: 90px;}
-        .accordion-header {
-            background-color: #f8fafc; padding: 15px; font-weight: bold; font-size: 15px;
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            color: #475569; -webkit-tap-highlight-color: transparent;
+        .accordion-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            scroll-margin-top: 90px;
         }
-        .accordion-header.active { background-color: #f0f5f1; color: #556b2f; }
-        .accordion-item.today-highlight { border: 2px solid #6b8e23; box-shadow: 0 0 10px rgba(107, 142, 35, 0.3); }
-        .accordion-item.today-highlight .accordion-header { background-color: #e2ede4; color: #2e4a00; }
-        .accordion-content { display: none; padding: 15px; background-color: white; border-top: 1px solid #e2e8f0; }
-        
-        .timeline { margin-top: 5px; }
-        .time-block { display: flex; margin-bottom: 15px; border-left: 3px solid #6b8e23; padding-left: 12px; position: relative; }
-        .time-block:last-child { margin-bottom: 0; }
-        .time-text { font-weight: bold; color: #6b8e23; min-width: 55px; font-size: 14px; }
-        .time-desc { font-size: 14px; line-height: 1.5; word-break: keep-all; padding-right: 65px; flex: 1; }
-        .map-btn { position: absolute; right: 0; top: 0; background-color: #ffffff; border: 1px solid #6b8e23; color: #6b8e23; padding: 4px 8px; font-size: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+
+        .accordion-header {
+            background-color: #f8fafc;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #475569;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .accordion-header.active {
+            background-color: #f0f5f1;
+            color: #556b2f;
+        }
+
+        .accordion-item.today-highlight {
+            border: 2px solid #6b8e23;
+            box-shadow: 0 0 10px rgba(107, 142, 35, 0.3);
+        }
+
+        .accordion-item.today-highlight .accordion-header {
+            background-color: #e2ede4;
+            color: #2e4a00;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .timeline {
+            margin-top: 5px;
+        }
+
+        .time-block {
+            display: flex;
+            margin-bottom: 15px;
+            border-left: 3px solid #6b8e23;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .time-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .time-text {
+            font-weight: bold;
+            color: #6b8e23;
+            min-width: 55px;
+            font-size: 14px;
+        }
+
+        .time-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            word-break: keep-all;
+            padding-right: 65px;
+            flex: 1;
+        }
+
+        .map-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: #ffffff;
+            border: 1px solid #6b8e23;
+            color: #6b8e23;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
 
     <script>
         var password = prompt("가족 전용 페이지입니다. 비밀번호를 입력해주세요:");
         if (password === "1234") {
-            window.onload = function() {
+            window.onload = function () {
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('nav-menu').style.display = 'flex';
-                startDdayCounter();  
-                fetchExchangeRate(); 
-                initAccordion();     
-                initScrollSpy();     
-                checkTodaySchedule(); 
+                startDdayCounter();
+                fetchExchangeRate();
+                initAccordion();
+                initScrollSpy();
+                checkTodaySchedule();
             }
         } else {
             alert("암호가 틀렸습니다. 새로고침을 눌러 다시 시도해주세요.");
@@ -153,26 +481,26 @@
 
         function startDdayCounter() {
             var targetDate = new Date("September 27, 2026 00:00:00").getTime();
-            setInterval(function() {
+            setInterval(function () {
                 var now = new Date().getTime();
                 var distance = targetDate - now;
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
+
                 var display = document.getElementById("dday-display");
                 if (distance < 0) { display.innerHTML = "🎉 우리 가족 즐거운 뉴질랜드 여행 중! 🎉"; }
                 else { display.innerHTML = "✈️ 출국까지 " + days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초 남음"; }
             }, 1000);
         }
 
-        var currentRate = 884; 
+        var currentRate = 884;
         function fetchExchangeRate() {
             fetch("https://open.er-api.com/v6/latest/NZD")
                 .then(response => response.json())
                 .then(data => {
-                    if(data && data.rates && data.rates.KRW) {
+                    if (data && data.rates && data.rates.KRW) {
                         currentRate = data.rates.KRW;
                         document.getElementById("rate-text").innerText = "💰 1 NZD = " + Math.round(currentRate) + " 원 (유럽 기준)";
                     }
@@ -197,10 +525,10 @@
                     if (data && data.current_weather && data.hourly) {
                         var currentTemp = Math.round(data.current_weather.temperature);
                         var weatherCode = data.current_weather.weathercode;
-                        
+
                         var daytimeTemps = data.hourly.temperature_2m.slice(9, 22);
                         var daytimeRainProbs = data.hourly.precipitation_probability.slice(9, 22);
-                        
+
                         var maxTemp = Math.round(Math.max.apply(null, daytimeTemps));
                         var minTemp = Math.round(Math.min.apply(null, daytimeTemps));
                         var maxRainProb = Math.max.apply(null, daytimeRainProbs);
@@ -213,10 +541,10 @@
                         else if (weatherCode >= 80 && weatherCode <= 82) icon = "🌦️";
 
                         document.getElementById("weather-icon-box").innerText = icon;
-                        
+
                         var guideText = "📍 오늘 지역: <strong>" + cityName + "</strong><br>";
                         guideText += "🌡️ 현재 <span class='temp-highlight'>" + currentTemp + "°C</span> | 낮 기온 (09시~21시): <span class='temp-highlight'>최저 " + minTemp + "°C / 최고 " + maxTemp + "°C</span><br>";
-                        
+
                         if (currentTemp <= 11) {
                             guideText += "🧥 아침저녁으로 많이 쌀쌀합니다. 두꺼운 외투나 경량패딩 필수!<br>";
                         } else if (currentTemp > 11 && currentTemp <= 18) {
@@ -243,8 +571,8 @@
         }
 
         function initAccordion() {
-            document.querySelectorAll('.accordion-header').forEach(function(header) {
-                header.addEventListener('click', function() { toggleAccordion(this); });
+            document.querySelectorAll('.accordion-header').forEach(function (header) {
+                header.addEventListener('click', function () { toggleAccordion(this); });
             });
         }
         function toggleAccordion(headerElement) {
@@ -285,7 +613,7 @@
             if (todayCard) {
                 todayCard.classList.add('today-highlight');
                 toggleAccordion(todayCard.querySelector('.accordion-header'));
-                setTimeout(function() {
+                setTimeout(function () {
                     todayCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 400);
             }
@@ -293,11 +621,11 @@
 
         function initScrollSpy() {
             var sections = document.querySelectorAll('section, .island-title');
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 var currentSectionId = "";
-                var scrollPosition = window.scrollY + 130; 
+                var scrollPosition = window.scrollY + 130;
 
-                sections.forEach(function(section) {
+                sections.forEach(function (section) {
                     if (scrollPosition >= section.offsetTop && scrollPosition < (section.offsetTop + section.offsetHeight)) {
                         currentSectionId = section.getAttribute('id');
                     }
@@ -310,7 +638,7 @@
                     return;
                 }
 
-                document.querySelectorAll('.nav-item').forEach(function(item) {
+                document.querySelectorAll('.nav-item').forEach(function (item) {
                     item.classList.remove('active');
                     if (item.querySelector('a').getAttribute('href') === "#" + currentSectionId) {
                         item.classList.add('active');
@@ -350,7 +678,7 @@
 
     <!-- 🏡 실제 홈페이지 내용 -->
     <div id="main-content" class="container">
-        
+
         <header>
             <h1>🇳🇿 26년 9월<br>뉴질랜드 여행 가이드</h1>
             <p>3대가 함께하는 따뜻한 힐링 여행</p>
@@ -360,7 +688,7 @@
         <!-- 📊 실시간 여행 대시보드 -->
         <div class="dashboard-widget">
             <div class="widget-title">📊 실시간 여행 대시보드</div>
-            
+
             <div class="exchange-box">
                 <div id="rate-text" class="exchange-rate-info">💰 환율 정보 불러오는 중...</div>
                 <div class="input-group">
@@ -380,14 +708,15 @@
         <div id="info" style="position: relative; top: -75px;"></div>
         <section id="info" class="section-card">
             <h2>🚗 안내사항</h2>
-            
+
             <!-- 📌 교통 안내 파트 -->
             <div id="info-traffic" style="position: relative; top: -75px;"></div>
             <div id="info-traffic">
                 <div class="sub-heading">🚗 1. 교통 안내</div>
-                
+
                 <div class="step-title">✈️ 출국 안내 (오클랜드 환승)</div>
-                <div class="sub-alert">⚠️ 중요: 오클랜드(AKL) 공항 도착 후, 반드시 수하물을 먼저 직접 픽업하신 다음에 국내선 카운터로 이동하여 크라이스트처치행 체크인을 다시 진행하셔야 합니다!</div>
+                <div class="sub-alert">⚠️ 중요: 오클랜드(AKL) 공항 도착 후, 반드시 수하물을 먼저 직접 픽업하신 다음에 국내선 카운터로 이동하여 크라이스트처치행 체크인을 다시
+                    진행하셔야 합니다!</div>
 
                 <!-- 📸 첫 번째 사진 & 안내 문구 조합 -->
                 <div class="photo-instruction-card">
@@ -403,12 +732,14 @@
 
                 <ul>
                     <li><strong>국제선 (대한항공):</strong> 비지니스석, KE1234</li>
-                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 9월 27일 18:00 인천(ICN) 출발 ➡️ 9월 28일 09:35 오클랜드(AKL) 도착</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 9월 27일 18:00
+                        인천(ICN) 출발 ➡️ 9월 28일 09:35 오클랜드(AKL) 도착</li>
                 </ul>
 
                 <ul>
                     <li><strong>국내선 (Air New Zealand):</strong> 일반석, NZ5678</li>
-                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 9월 28일 12:00 오클랜드(AKL) 출발 ➡️ 9월 28일 13:25 크라이스트처치(CHC) 도착</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 9월 28일 12:00
+                        오클랜드(AKL) 출발 ➡️ 9월 28일 13:25 크라이스트처치(CHC) 도착</li>
                 </ul>
 
                 <ul>
@@ -418,7 +749,8 @@
                 <div class="step-title">✈️ 귀국 안내</div>
                 <ul>
                     <li><strong>국제선 (대한항공):</strong> 이코노미석, KE5678</li>
-                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 10일 12:05 오클랜드(AKL) 출발 ➡️ 10월 10일 20:20 인천(ICN) 도착</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 10일 12:05
+                        오클랜드(AKL) 출발 ➡️ 10월 10일 20:20 인천(ICN) 도착</li>
                 </ul>
 
                 <div class="step-title">🏔️ 남섬 투어 교통</div>
@@ -429,7 +761,8 @@
                 <div class="step-title">🌋 북섬 이동 안내</div>
                 <ul>
                     <li><strong>국내선 (Air New Zealand):</strong> 일반석, NZ1234</li>
-                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 8일 09:00 크라이스트처치(CHC) 출발 ➡️ 10월 8일 10:25 오클랜드(AKL) 도착</li>
+                    <li style="list-style: none; margin-left: -10px; font-size: 14px; color: #555;">📅 10월 8일 09:00
+                        크라이스트처치(CHC) 출발 ➡️ 10월 8일 10:25 오클랜드(AKL) 도착</li>
                 </ul>
             </div>
 
@@ -447,7 +780,8 @@
             <div id="info-contacts" style="position: relative; top: -75px;"></div>
             <div id="info-contacts">
                 <div class="sub-heading">🚨 3. 비상 연락처 (SOS)</div>
-                <p style="font-size:13px; color:#666; margin-bottom:10px; padding-left: 2px;">전화번호를 터치하시면 바로 통화 창으로 연결됩니다.</p>
+                <p style="font-size:13px; color:#666; margin-bottom:10px; padding-left: 2px;">전화번호를 터치하시면 바로 통화 창으로
+                    연결됩니다.</p>
                 <ul class="contact-list">
                     <li class="contact-item">
                         <span class="contact-name">🙋‍♂️ 연우 번호</span>
@@ -463,16 +797,20 @@
                     </li>
                 </ul>
                 <!-- 🏡 크라이스트처치 자택 주소 (기존 코드 수정 없이 추가) -->
-                <div style="margin-top: 15px; padding: 15px; background-color: #f1f5f9; border-left: 4px solid #475569; border-radius: 4px 8px 8px 4px;">
-                    <div style="font-size: 14px; font-weight: bold; color: #475569; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
+                <div
+                    style="margin-top: 15px; padding: 15px; background-color: #f1f5f9; border-left: 4px solid #475569; border-radius: 4px 8px 8px 4px;">
+                    <div
+                        style="font-size: 14px; font-weight: bold; color: #475569; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;">
                         🏡 크라이스트처치 집 주소
                     </div>
-                    <div style="font-size: 14.5px; color: #334155; line-height: 1.5; font-weight: bold; word-break: keep-all;">
-                            15 Orr St Wigram Christchurch 8042 NZ <br>
-                        <span style="font-size: 13px; color: #64748b; font-weight: normal; display: block; margin-top: 4px;">
+                    <div
+                        style="font-size: 14.5px; color: #334155; line-height: 1.5; font-weight: bold; word-break: keep-all;">
+                        15 Orr St Wigram Christchurch 8042 NZ <br>
+                        <span
+                            style="font-size: 13px; color: #64748b; font-weight: normal; display: block; margin-top: 4px;">
                             (여행지별 숙소) <br>
-                            마운트쿡 :  <br>
-                            퀸즈타운 :  <br>
+                            마운트쿡 : <br>
+                            퀸즈타운 : <br>
                             더니든 : <br>
                             로토루아 : <br>
                             오클랜드 : <br>
@@ -484,120 +822,128 @@
 
         <!-- 2. 일별/시간별 여행 계획 -->
         <section id="schedule" class="section-card">
-<h2>🗓️ 여행 일정</h2>
+            <h2>🗓️ 여행 일정</h2>
 
-<div id="schedule-summary" style="position: relative; top: -75px;"></div>
-<div class="island-title" >📋 여행 주요 일정 요약</div>
+            <div id="schedule-summary" style="position: relative; top: -75px;"></div>
+            <div class="island-title">📋 여행 주요 일정 요약</div>
 
-<style>
-    .summary-table-container {
-        margin: 20px 0;
-        border: 1px solid #dde3de;
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: #ffffff;
-    }
-    .summary-table {
-        width: 100%;
-        border-collapse: collapse;
-        text-align: left;
-        font-size: 14px;
-    }
-    .summary-table th {
-        background-color: #556b2f;
-        color: #ffffff;
-        padding: 10px 12px;
-        font-weight: bold;
-    }
-    .summary-table td {
-        padding: 12px;
-        border-bottom: 1px solid #eff2f0;
-        color: #444444;
-        line-height: 1.4;
-    }
-    .summary-table tr:last-child td {
-        border-bottom: none;
-    }
-    .summary-table tr:nth-child(even) {
-        background-color: #fcfdfe;
-    }
-    .badge-south {
-        background-color: #e2ede4;
-        color: #2e4a00;
-        padding: 3px 6px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-    .badge-north {
-        background-color: #fef3c7;
-        color: #92400e;
-        padding: 3px 6px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-</style>
+            <style>
+                .summary-table-container {
+                    margin: 20px 0;
+                    border: 1px solid #dde3de;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    background-color: #ffffff;
+                }
 
-<div class="summary-table-container">
-    <table class="summary-table">
-        <thead>
-            <tr>
-                <th style="width: 20%;">일자</th>
-                <th style="width: 30%;">주요 장소</th>
-                <th style="width: 50%;">핵심 일정 요약</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>1~3일차</strong></td>
-                <td><span class="badge-south">남섬</span> 크라이스트처치</td>
-                <td>인천 출발, 아들 가족 상봉 및 시내·트램 투어 🚋</td>
-            </tr>
-            <tr>
-                <td><strong>4일차</strong></td>
-                <td><span class="badge-south">남섬</span> 마운트쿡</td>
-                <td>테카포·푸카키 호수 절경 관람 및 연어 맛집 🐟</td>
-            </tr>
-            <tr>
-                <td><strong>5~7일차</strong></td>
-                <td><span class="badge-south">남섬</span> 퀸스타운</td>
-                <td>밀포드사운드 크루즈선 🚢, 곤돌라 및 루지 체험</td>
-            </tr>
-            <tr>
-                <td><strong>8~9일차</strong></td>
-                <td><span class="badge-south">남섬</span> 더니든 / 오마루</td>
-                <td>고풍스러운 성·기차역 투어 및 블루펭귄 관람 🐧</td>
-            </tr>
-            <tr>
-                <td><strong>10~11일차</strong></td>
-                <td><span class="badge-south">남섬</span> 크라이스트처치</td>
-                <td>장거리 로드트립 여독 풀기, 자택 휴식 및 힐링 🏡</td>
-            </tr>
-            <tr>
-                <td><strong>12일차</strong></td>
-                <td><span class="badge-north">북섬</span> 로토루아</td>
-                <td>북섬 항공 이동, 마오리 문화쇼 및 지열 요리 '항이' 🌋</td>
-            </tr>
-            <tr>
-                <td><strong>13~14일차</strong></td>
-                <td><span class="badge-north">북섬</span> 오클랜드</td>
-                <td>호비톤 동화 마을 투어 후 오클랜드 복귀 & 귀국</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                .summary-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    text-align: left;
+                    font-size: 14px;
+                }
+
+                .summary-table th {
+                    background-color: #556b2f;
+                    color: #ffffff;
+                    padding: 10px 12px;
+                    font-weight: bold;
+                }
+
+                .summary-table td {
+                    padding: 12px;
+                    border-bottom: 1px solid #eff2f0;
+                    color: #444444;
+                    line-height: 1.4;
+                }
+
+                .summary-table tr:last-child td {
+                    border-bottom: none;
+                }
+
+                .summary-table tr:nth-child(even) {
+                    background-color: #fcfdfe;
+                }
+
+                .badge-south {
+                    background-color: #e2ede4;
+                    color: #2e4a00;
+                    padding: 3px 6px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+
+                .badge-north {
+                    background-color: #fef3c7;
+                    color: #92400e;
+                    padding: 3px 6px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            </style>
+
+            <div class="summary-table-container">
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">일자</th>
+                            <th style="width: 30%;">주요 장소</th>
+                            <th style="width: 50%;">핵심 일정 요약</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1~3일차</strong></td>
+                            <td><span class="badge-south">남섬</span> 크라이스트처치</td>
+                            <td>인천 출발, 아들 가족 상봉 및 시내·트램 투어 🚋</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4일차</strong></td>
+                            <td><span class="badge-south">남섬</span> 마운트쿡</td>
+                            <td>테카포·푸카키 호수 절경 관람 및 연어 맛집 🐟</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5~7일차</strong></td>
+                            <td><span class="badge-south">남섬</span> 퀸스타운</td>
+                            <td>밀포드사운드 크루즈선 🚢, 곤돌라 및 루지 체험</td>
+                        </tr>
+                        <tr>
+                            <td><strong>8~9일차</strong></td>
+                            <td><span class="badge-south">남섬</span> 더니든 / 오마루</td>
+                            <td>고풍스러운 성·기차역 투어 및 블루펭귄 관람 🐧</td>
+                        </tr>
+                        <tr>
+                            <td><strong>10~11일차</strong></td>
+                            <td><span class="badge-south">남섬</span> 크라이스트처치</td>
+                            <td>장거리 로드트립 여독 풀기, 자택 휴식 및 힐링 🏡</td>
+                        </tr>
+                        <tr>
+                            <td><strong>12일차</strong></td>
+                            <td><span class="badge-north">북섬</span> 로토루아</td>
+                            <td>북섬 항공 이동, 마오리 문화쇼 및 지열 요리 '항이' 🌋</td>
+                        </tr>
+                        <tr>
+                            <td><strong>13~14일차</strong></td>
+                            <td><span class="badge-north">북섬</span> 오클랜드</td>
+                            <td>호비톤 동화 마을 투어 후 오클랜드 복귀 & 귀국</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div id="south-island-anchor" style="position: relative; top: -75px;"></div>
             <div class="island-title" id="south-island">🏔️ 남섬 대자연 일주 (1일차 ~ 11일차)</div>
-            
+
             <div class="accordion-item" data-date="2026-09-27">
                 <div class="accordion-header">🗓️ 1일차 (9월 27일, 일) - 인천 출발 <span class="arrow">▼</span></div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
                             <div class="time-text">16:00</div>
-                            <div class="time-desc">인천공항 도착 및 출국 준비 <a href="https://maps.app.goo.gl/9bN6SscZpEymZkK96" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">인천공항 도착 및 출국 준비 <a href="https://maps.app.goo.gl/9bN6SscZpEymZkK96"
+                                    target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">18:00</div>
@@ -613,11 +959,15 @@
                     <div class="timeline">
                         <div class="time-block">
                             <div class="time-text">09:35</div>
-                            <div class="time-desc">오클랜드 도착 후 수하물 픽업 ➡️ 국내선 환승 이동 <a href="https://maps.app.goo.gl/Rsh3h3b6bXwY2vHk8" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">오클랜드 도착 후 수하물 픽업 ➡️ 국내선 환승 이동 <a
+                                    href="https://maps.app.goo.gl/Rsh3h3b6bXwY2vHk8" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">13:25</div>
-                            <div class="time-desc">크라이스트처치 공항 최종 도착 및 아들 가족 상봉! <a href="https://maps.app.goo.gl/wJm86Z99tWh6pEwN6" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">크라이스트처치 공항 최종 도착 및 아들 가족 상봉! <a
+                                    href="https://maps.app.goo.gl/wJm86Z99tWh6pEwN6" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:30</div>
@@ -640,43 +990,36 @@
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
-                            <div class="time-text">오전</div>
-                            <div class="time-desc">자택 출발, 윌로우뱅크 이동</div>
+                            <div class="time-text">09:00</div>
+                            <div class="time-desc">자택 출발, 윌로우뱅크 이동(09:30 open)</div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:30</div>
-                            <div class="time-desc">윌로우뱅크 관람 + 점심 식사 <a href="https://maps.app.goo.gl/pW2wLz3b8t9MvD7D9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">윌로우뱅크 관람 후 시티 이동 <a href="https://maps.app.goo.gl/pW2wLz3b8t9MvD7D9"
+                                    target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">13:00</div>
-                            <div class="time-desc">시내(캐시드럴 정션, 트램 시작점) 이동 <a href="https://maps.app.goo.gl/yT6zU7G2BwR2vM6S9" target="_blank" class="map-btn">📍 지도</a></div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">13:30</div>
-                            <div class="time-desc">트램 전체 한 바퀴 탑승 (50분 소요)</div>
+                            <div class="time-text">12:00</div>
+                            <div class="time-desc">리버사이드 마켓에서 점심 식사 <a href="https://maps.app.goo.gl/yT6zU7G2BwR2vM6S9"
+                                    target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:20</div>
-                            <div class="time-desc">뉴 리젠트 스트리트 하차, 카페 휴식 <a href="https://maps.app.goo.gl/Wv8Xz7M5bT2V6kNS8" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">에이본강 펀팅 (Antigua Boat shed 출발 - 15분전 도착필요) </div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">15:00</div>
-                            <div class="time-desc">마가렛 마히 플레이그라운드 이동</div>
+                            <div class="time-desc">차로 turanga(중앙도서관) 이동 (시간 여유 있으며 뉴리전트 스트리트, 마가렛마히 플레이그라운드 구경) <a
+                                    href="https://maps.app.goo.gl/Wv8Xz7M5bT2V6kNS8" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">15:20</div>
-                            <div class="time-desc">마가렛 마히 플레이그라운드 (아이 놀기, 어르신 휴식) <a href="https://maps.app.goo.gl/Z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">17:30</div>
+                            <div class="time-desc">INATI(미슐랭 1스타) 저녁 식사(8코스 $185pp) - 예약완료) </div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">16:30</div>
-                            <div class="time-desc">리버사이드 마켓 이동</div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">17:00</div>
-                            <div class="time-desc">리버사이드 마켓 저녁 식사 <a href="https://maps.app.goo.gl/u8W5X7M2bT2V6kNS7" target="_blank" class="map-btn">📍 지도</a></div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">저녁</div>
+                            <div class="time-text">19:30</div>
                             <div class="time-desc">자택 복귀 및 휴식</div>
                         </div>
                     </div>
@@ -684,7 +1027,8 @@
             </div>
 
             <div class="accordion-item" data-date="2026-09-30">
-                <div class="accordion-header">🗓️ 4일차 (9월 30일, 수) - 테카포 호수와 마운트쿡 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 4일차 (9월 30일, 수) - 테카포 호수와 마운트쿡 이동 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -692,104 +1036,109 @@
                             <div class="time-desc">자택 출발</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">09:00</div>
-                            <div class="time-desc">제럴딘 도착, 짧은 휴식 (카페, 화장실, 작은 마을 산책) <a href="https://maps.app.goo.gl/v8M5X7W2bT2V6kNS9" target="_blank" class="map-btn">📍 지도</a></div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">09:30</div>
-                            <div class="time-desc">레이크 테카포 방향 이동</div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">10:30</div>
-                            <div class="time-desc">레이크 테카포 도착, 호수 + 선한 목자의 교회 사진 촬영 <a href="https://maps.app.goo.gl/Wv6Xz7M5bT2V6kNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">10:20</div>
+                            <div class="time-desc">FAIRLIE BAKERHOUSE 도착, 짧은 휴식 및 남섬 유명 파이 <a
+                                    href="https://maps.app.goo.gl/v8M5X7W2bT2V6kNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:00</div>
-                            <div class="time-desc">레이크 푸카키 방향 이동</div>
+                            <div class="time-desc">레이크 테카포 도착, 호수 + 선한 목자의 교회 사진 촬영</div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:30</div>
-                            <div class="time-desc">레이크 푸카키 전망 포인트 (마운트쿡이 호수 너머로 보이는 명당) <a href="https://maps.app.goo.gl/X8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">레이크 푸카키 방향 이동</div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:50</div>
-                            <div class="time-desc">연어팜 이동</div>
+                            <div class="time-desc">Mt Cook Alpine Salmon Shop에서 호수 보면서 점심 </div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">12:10</div>
-                            <div class="time-desc">연어팜에서 점심 식사 🐟 <a href="https://maps.app.goo.gl/Y8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">12:30</div>
+                            <div class="time-desc">식사 후 마운트쿡으로 이동(50분 거리)</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">13:00</div>
-                            <div class="time-desc">마운트쿡 빌리지로 최종 이동</div>
+                            <div class="time-text">13:30</div>
+                            <div class="time-desc"> 후커밸리 트랙 (체력에 따라 1(1시간)/2(2시간)/3(3시간)번 다리 중 택 1) <a
+                                    href="https://maps.app.goo.gl/a8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">14:00</div>
-                            <div class="time-desc">숙소 체크인 및 짐 정리</div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">14:30</div>
-                            <div class="time-desc">더 허미타지 호텔 주변 산책, 카페에서 전망 감상 <a href="https://maps.app.goo.gl/Z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">15:30</div>
+                            <div class="time-desc">Twizel 또는 omarama로 이동(약 1시간 소요) </div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">16:30</div>
-                            <div class="time-desc">(선택 일정) 후커밸리 트랙 초입까지 짧게 다녀오기 <a href="https://maps.app.goo.gl/a8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">숙소 체크인</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">18:30</div>
-                            <div class="time-desc">저녁 식사 (18:30 ~ 20:00)</div>
+                            <div class="time-text">18:00</div>
+                            <div class="time-desc">저녁 식사</div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">20:00</div>
-                            <div class="time-desc">이후 날씨 좋으면 밤하늘 별 보기</div>
+                            <div class="time-desc">밤하늘(별) 구경</div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-10-01">
-                <div class="accordion-header">🗓️ 5일차 (10월 1일, 목) - 와나카 경유 퀸스타운 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 5일차 (10월 1일, 목) - 와나카 경유 퀸스타운 이동 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
                             <div class="time-text">08:00</div>
-                            <div class="time-desc">마운트쿡 출발 후 린디스 패스 방향 이동 (약 2시간 소요)</div>
+                            <div class="time-desc"> 린디스 패스 방향 이동 (약 2시간 소요)</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">10:00</div>
-                            <div class="time-desc">린디스 패스 전망 포인트 휴게 (사진 촬영, 화장실) <a href="https://maps.app.goo.gl/b8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">9:00</div>
+                            <div class="time-desc">린디스 패스 전망 포인트 휴게 (사진 촬영, 화장실) <a
+                                    href="https://maps.app.goo.gl/b8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">10:20</div>
+                            <div class="time-text">9:20</div>
                             <div class="time-desc">와나카 이동 시작</div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">11:20</div>
-                            <div class="time-desc">와나카 도착 — 그 나무 사진 촬영 및 호수 산책 🌳 <a href="https://maps.app.goo.gl/c8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">10:20</div>
+                            <div class="time-desc">와나카 도착 — 그 나무 사진 촬영 및 호수 산책 🌳 <a
+                                    href="https://maps.app.goo.gl/c8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">12:20</div>
+                            <div class="time-text">11:20</div>
                             <div class="time-desc">와나카에서 점심 식사 (12:20 ~ 13:20)</div>
                         </div>
                         <div class="time-block">
+                            <div class="time-text">12:20</div>
+                            <div class="time-desc">(선택 일정) 퍼즐링월드 관람 <a href="https://maps.app.goo.gl/d8b2bX7W5T2V6mNS9"
+                                    target="_blank" class="map-btn">📍 지도</a></div>
+                        </div>
+                        <div class="time-block">
                             <div class="time-text">13:20</div>
-                            <div class="time-desc">(선택 일정) 퍼즐링월드 관람 <a href="https://maps.app.goo.gl/d8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">카드로나 이동, 카드로나 호텔 짧게 구경 <a
+                                    href="https://maps.app.goo.gl/e8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">14:20</div>
-                            <div class="time-desc">카드로나 이동, 카드로나 호텔 짧게 들르기 <a href="https://maps.app.goo.gl/e8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-text">13:50</div>
+                            <div class="time-desc">크라운 레인지 넘어 퀸스타운 이동 (전망대 잠깐 정차 및 사진 촬영) <a
+                                    href="https://maps.app.goo.gl/f8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
-                            <div class="time-text">14:50</div>
-                            <div class="time-desc">크라운 레인지 넘어 퀸스타운 이동 (전망대 잠깐 정차 및 사진 촬영) <a href="https://maps.app.goo.gl/f8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
-                        </div>
-                        <div class="time-block">
-                            <div class="time-text">15:50</div>
+                            <div class="time-text">1:50</div>
                             <div class="time-desc">퀸스타운 도착 및 숙소 체크인</div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">18:30</div>
-                            <div class="time-desc">저녁 식사 (와카티푸 호수 뷰 레스토랑, 18:30 ~ 20:00) <a href="https://maps.app.goo.gl/g8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">저녁 식사 (와카티푸 호수 뷰 레스토랑, 18:30 ~ 20:00) <a
+                                    href="https://maps.app.goo.gl/g8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">20:00</div>
@@ -813,11 +1162,15 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">09:30</div>
-                            <div class="time-desc">테아나우 휴게 (화장실 이용 및 스트레칭) <a href="https://maps.app.goo.gl/h8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">테아나우 휴게 (화장실 이용 및 스트레칭) <a
+                                    href="https://maps.app.goo.gl/h8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">09:50</div>
-                            <div class="time-desc">테아나우 → 밀포드사운드 이동 (미러레이크, 호머 터널 등 경유) <a href="https://maps.app.goo.gl/i8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">테아나우 → 밀포드사운드 이동 (미러레이크, 호머 터널 등 경유) <a
+                                    href="https://maps.app.goo.gl/i8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:30</div>
@@ -825,7 +1178,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">12:00</div>
-                            <div class="time-desc">🚢 밀포드사운드 크루즈 탑승 관람 (1.5 ~ 2시간 소요) <a href="https://maps.app.goo.gl/j8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">🚢 밀포드사운드 크루즈 탑승 관람 (1.5 ~ 2시간 소요) <a
+                                    href="https://maps.app.goo.gl/j8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:00</div>
@@ -856,7 +1211,8 @@
             </div>
 
             <div class="accordion-item" data-date="2026-10-03">
-                <div class="accordion-header">🗓️ 7일차 (10월 3일, 토) - 퀸스타운 투어 후 더니든 야간 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 7일차 (10월 3일, 토) - 퀸스타운 투어 후 더니든 야간 이동 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -869,7 +1225,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">10:20</div>
-                            <div class="time-desc">🚡 스카이라인 곤돌라 탑승 후 전망대 이동 <a href="https://maps.app.goo.gl/k8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">🚡 스카이라인 곤돌라 탑승 후 전망대 이동 <a
+                                    href="https://maps.app.goo.gl/k8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:00</div>
@@ -889,7 +1247,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:00</div>
-                            <div class="time-desc">TSS 언슬로 유람선 탑승 투어 (45분 항해) ⛵ <a href="https://maps.app.goo.gl/m8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">TSS 언슬로 유람선 탑승 투어 (45분 항해) ⛵ <a
+                                    href="https://maps.app.goo.gl/m8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:45</div>
@@ -901,7 +1261,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">15:45</div>
-                            <div class="time-desc">아로우타운 골드러시 옛 거리 산책 및 기념품숍 구경 🏘️ <a href="https://maps.app.goo.gl/n8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">아로우타운 골드러시 옛 거리 산책 및 기념품숍 구경 🏘️ <a
+                                    href="https://maps.app.goo.gl/n8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">16:45</div>
@@ -921,7 +1283,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">20:00</div>
-                            <div class="time-desc">중간 휴게 (알렉산드라 또는 록스버그 근처, 화장실 및 스트레칭) <a href="https://maps.app.goo.gl/o8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">중간 휴게 (알렉산드라 또는 록스버그 근처, 화장실 및 스트레칭) <a
+                                    href="https://maps.app.goo.gl/o8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">20:20</div>
@@ -936,7 +1300,8 @@
             </div>
 
             <div class="accordion-item" data-date="2026-10-04">
-                <div class="accordion-header">🗓️ 8일차 (10월 4일, 일) - 고풍스러운 더니든 명소 투어 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 8일차 (10월 4일, 일) - 고풍스러운 더니든 명소 투어 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -945,15 +1310,18 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">10:00</div>
-                            <div class="time-desc">마우리 힐 방문 <a href="https://maps.app.goo.gl/p8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">마우리 힐 방문 <a href="https://maps.app.goo.gl/p8b2bX7W5T2V6mNS9"
+                                    target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">10:30</div>
-                            <div class="time-desc">존 맥글레이션 컬리지 구경 <a href="https://maps.app.goo.gl/q8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">존 맥글레이션 컬리지 구경 <a href="https://maps.app.goo.gl/q8b2bX7W5T2V6mNS9"
+                                    target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">11:00</div>
-                            <div class="time-desc">조지 스트리트 구경 <a href="https://maps.app.goo.gl/r8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">조지 스트리트 구경 <a href="https://maps.app.goo.gl/r8b2bX7W5T2V6mNS9"
+                                    target="_blank" class="map-btn">📍 지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">12:00</div>
@@ -961,7 +1329,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">13:00</div>
-                            <div class="time-desc">볼드윈 스트리트(세계에서 가장 가파른 길) 및 DNI 명소 방문 <a href="https://maps.app.goo.gl/s8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">볼드윈 스트리트(세계에서 가장 가파른 길) 및 DNI 명소 방문 <a
+                                    href="https://maps.app.goo.gl/s8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">13:30</div>
@@ -969,7 +1339,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">13:50</div>
-                            <div class="time-desc">올드 더니든 역 — 역사적 건물 내부 및 외관 관람 🚂 <a href="https://maps.app.goo.gl/t8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">올드 더니든 역 — 역사적 건물 내부 및 외관 관람 🚂 <a
+                                    href="https://maps.app.goo.gl/t8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:30</div>
@@ -977,7 +1349,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">14:50</div>
-                            <div class="time-desc">라나크 캐슬 성 내부 및 정원 관람 🏰 (어르신 정원 벤치 휴식 가능) <a href="https://maps.app.goo.gl/u8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">라나크 캐슬 성 내부 및 정원 관람 🏰 (어르신 정원 벤치 휴식 가능) <a
+                                    href="https://maps.app.goo.gl/u8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">16:20</div>
@@ -992,7 +1366,8 @@
             </div>
 
             <div class="accordion-item" data-date="2026-10-05">
-                <div class="accordion-header">🗓️ 9일차 (10월 5일, 월) - 오마루 펭귄 관람 및 치치 복귀 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 9일차 (10월 5일, 월) - 오마루 펭귄 관람 및 치치 복귀 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -1001,7 +1376,9 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">오후</div>
-                            <div class="time-desc">중간 기점 오마루(Oamaru) 경유하여 블루펭귄 서식지 관람 🐧 <a href="https://maps.app.goo.gl/v8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">중간 기점 오마루(Oamaru) 경유하여 블루펭귄 서식지 관람 🐧 <a
+                                    href="https://maps.app.goo.gl/v8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">저녁</div>
@@ -1012,7 +1389,8 @@
             </div>
 
             <div class="accordion-item" data-date="2026-10-06">
-                <div class="accordion-header">🗓️ 10일차 (10월 6일, 화) - 크라이스트처치 자택 휴식 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 10일차 (10월 6일, 화) - 크라이스트처치 자택 휴식 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -1024,7 +1402,8 @@
             </div>
 
             <div class="accordion-item" data-date="2026-10-07">
-                <div class="accordion-header">🗓️ 11일차 (10월 7일, 수) - 크라이스트처치 자택 휴식 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 11일차 (10월 7일, 수) - 크라이스트처치 자택 휴식 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -1039,7 +1418,8 @@
             <div class="island-title" id="north-island">🌋 북섬 온천 및 영화 세트장 (12일차 ~ 14일차)</div>
 
             <div class="accordion-item" data-date="2026-10-08">
-                <div class="accordion-header">🗓️ 12일차 (10월 8일, 목) - 북섬 이동 및 로토루아 마오리쇼 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 12일차 (10월 8일, 목) - 북섬 이동 및 로토루아 마오리쇼 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -1048,18 +1428,23 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">오후</div>
-                            <div class="time-desc">오클랜드 도착 후 차량 수령 및 유황 온천 도시 로토루아로 이동 <a href="https://maps.app.goo.gl/w8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">오클랜드 도착 후 차량 수령 및 유황 온천 도시 로토루아로 이동 <a
+                                    href="https://maps.app.goo.gl/w8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">저녁</div>
-                            <div class="time-desc">🔥 마오리 문화쇼 관람 및 전통 지열 요리 '항이' 저녁 식사 <a href="https://maps.app.goo.gl/x8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">🔥 마오리 문화쇼 관람 및 전통 지열 요리 '항이' 저녁 식사 <a
+                                    href="https://maps.app.goo.gl/x8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-10-09">
-                <div class="accordion-header">🗓️ 13일차 (10월 9일, 금) - 호비톤 영화세트장 및 오클랜드 이동 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 13일차 (10월 9일, 금) - 호비톤 영화세트장 및 오클랜드 이동 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
@@ -1068,23 +1453,30 @@
                         </div>
                         <div class="time-block">
                             <div class="time-text">낮</div>
-                            <div class="time-desc">호비톤 영화 세트장(Hobbiton Movie Set) 동화 테마 투어 💚 <a href="https://maps.app.goo.gl/y8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">호비톤 영화 세트장(Hobbiton Movie Set) 동화 테마 투어 💚 <a
+                                    href="https://maps.app.goo.gl/y8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">오후</div>
-                            <div class="time-desc">오클랜드로 최종 복귀 이동, 숙소 체크인 및 마지막 밤 식사 <a href="https://maps.app.goo.gl/z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">오클랜드로 최종 복귀 이동, 숙소 체크인 및 마지막 밤 식사 <a
+                                    href="https://maps.app.goo.gl/z8b2bX7W5T2V6mNS9" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item" data-date="2026-10-10">
-                <div class="accordion-header">🗓️ 14일차 (10월 10일, 토) - 공항 이동 및 한국 출국 <span class="arrow">▼</span></div>
+                <div class="accordion-header">🗓️ 14일차 (10월 10일, 토) - 공항 이동 및 한국 출국 <span class="arrow">▼</span>
+                </div>
                 <div class="accordion-content">
                     <div class="timeline">
                         <div class="time-block">
                             <div class="time-text">오전</div>
-                            <div class="time-desc">공항 이동, 차량 반납 및 출국 수속 완료 <a href="https://maps.app.goo.gl/Rsh3h3b6bXwY2vHk8" target="_blank" class="map-btn">📍 지도</a></div>
+                            <div class="time-desc">공항 이동, 차량 반납 및 출국 수속 완료 <a
+                                    href="https://maps.app.goo.gl/Rsh3h3b6bXwY2vHk8" target="_blank" class="map-btn">📍
+                                    지도</a></div>
                         </div>
                         <div class="time-block">
                             <div class="time-text">낮</div>
@@ -1127,4 +1519,5 @@
     </div>
 
 </body>
+
 </html>
